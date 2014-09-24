@@ -1,4 +1,4 @@
-<?
+<?php
 $pgsql_content = array();
 $pgsql_content["hostname"]        = $tra['bdIp'];		// PGSQL hostname
 $pgsql_content["user"]            = $tra['bdUsuario'];	// PGSQL username
@@ -16,15 +16,13 @@ $pgsql_content["table"]           = "";					// Nombre de la tabla inicial
 
 require_once("postgres.inc.php");
 
-	
-
 $db = new db();
 $db->connect();
-$db->set_query("Set DateStyle TO 'SQL,European'");
+/*$db->set_query("Set DateStyle TO 'SQL,European'");
 $db->execute_query();
 $db->set_query("SET CLIENT_ENCODING TO 'UTF-8'");
-$db->execute_query();
-
+$db->execute_query();*/
+/*
 // GUARDAR PHP ID SESSION EN BASE DE DATOS
 // START
 
@@ -56,4 +54,4 @@ $db5->connect();
 $db5->set_query("Set DateStyle TO 'SQL,European'");
 $db5->execute_query();
 $db5->set_query("SET CLIENT_ENCODING TO 'UTF-8'");
-$db5->execute_query();
+$db5->execute_query();*/

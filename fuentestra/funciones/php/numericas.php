@@ -1,4 +1,4 @@
-<?
+<?php
 function separadorMiles($numero,$decimales=0){
 	$cadena=number_format($numero,$decimales,',','.');
 	return $cadena;
@@ -172,5 +172,4 @@ function numero_letras($num, $fem = true, $dec = true) {
 function redondear_dos_decimal($valor) {
    $float_redondeado=round($valor * 100) / 100;
    return $float_redondeado;
-} 
-?>
+}

@@ -1,4 +1,4 @@
-<?
+<?php
 //$minutosParaDesconeccion=35;
 
 function recibir_dato($variable, $metodo='request', $por_defecto=''){

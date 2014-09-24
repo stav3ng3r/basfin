@@ -2290,4 +2290,3 @@ function fpdf_cantSaltoLinea($pdf,$w,$h,$txt){
 
 	return $cSL;
 }
-?>

@@ -1,5 +1,14 @@
-<?
+<?php
+
+/** Autoload de dependencias de composer */
+include(ROOT . '/librerias/vendor/autoload.php');
+
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
 include 'conexion.php';
+/*
 include 'seguridad.php';
 include 'cadena.php';
 include 'fecha.php';
@@ -13,4 +22,4 @@ include 'jpgraph/jpgraph.php';
 include 'jpgraph/jpgraph_line.php';
 include 'jpgraph/jpgraph_pie.php';
 include 'jpgraph/jpgraph_pie3d.php';
-include 'jpgraph/jpgraph_bar.php';
+include 'jpgraph/jpgraph_bar.php';*/

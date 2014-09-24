@@ -1,4 +1,4 @@
-<?
+<?php
 function leer_codigo_de_archivo($ruta){
 	$codigo="";
 	if(file_exists($ruta)==true){

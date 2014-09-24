@@ -6,6 +6,9 @@ if (file_exists('kint/Kint.php') == true) {
     include 'kint/Kint.php';
 }
 
+
+define('ROOT', realpath(__DIR__));
+
 $cadenaTraIni = '';
 
 if (file_exists('tra.ini') == true) {
@@ -16,6 +19,7 @@ if (file_exists('tra.ini') == true) {
         $cadenaTraIni .= $buffer;
     }
 
+    $tra = array();
     $tra['alias'] = '';
     $tra['bd'] = '';
     $tra['bdUsuario'] = '';

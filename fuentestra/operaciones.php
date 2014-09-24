@@ -1,4 +1,4 @@
-<?
+<?php
 $guardarEnDebugOperaciones=0;
 
 //-- datos para la coneccion a la bd por defecto --
@@ -14,7 +14,9 @@ if($tra['bdIp']==''){$tra['bdIp']=$tra['bdDefaultIp'];}
 
 include('funciones/php/generales.php');
 
-$nuevoSistema=recibir_dato('nuevoSistema');
+//$nuevoSistema=recibir_dato('nuevoSistema');
+
+/*
 $b=0;
 //$sql="select id_sistema, titulo, palabras_claves, descripcion, dominio, exigir_login from sistemas where alias='".$tra['alias']."'";
 $sql="select titulo, palabras_claves, descripcion, dominio, exigir_login from sistemas where alias='".$tra['alias']."'";
@@ -39,7 +41,7 @@ if($row=$db->get_array()){
 		$nombre=recibir_dato('nombre','post');
 		$clave=recibir_dato('clave','post');
 		$correo=recibir_dato('correo','post');
-		
+
 		$sql="select id_sistema from sistemas order by id_sistema desc limit 1";
 		$db->set_query($sql);
 		$db->execute_query();
@@ -48,7 +50,7 @@ if($row=$db->get_array()){
 		}else{
 			$tra['id_sistema']=1;
 		}
-		
+
 		$sql="
 			insert into sistemas (
 				id_sistema, alias, titulo, palabras_claves, descripcion
@@ -58,7 +60,7 @@ if($row=$db->get_array()){
 		";
 		$db->set_query($sql);
 		$db->execute_query();
-		
+
 		$sql="
 			insert into usuarios (
 				id_sistema,
@@ -86,7 +88,7 @@ if($row=$db->get_array()){
 		";
 		$db->set_query($sql);
 		$db->execute_query();
-		
+
 		$b=1;
 	}
 }
@@ -96,7 +98,7 @@ if($b==0){
 	}else{
 		echo("El sistema <b>".$tra['alias']."</b> no se encuentra registrado en base de datos <b>".$tra['bd']."</b> <a href='index.php?nuevoSistema=insert'>registrar</a>");
 	}
-}else{	
+}else{
 	$tra['operacion']=recibir_dato('o');
 	if(isset($_REQUEST['folder'])==true){$tra['operacion']='secciones';}
 
@@ -133,8 +135,7 @@ if($b==0){
 	}else{
 		tra();
 	}
-}
-
+}*/
 /*
 echo "print tra in fuentestra/operaciones.php: ";
 print_r($tra);
@@ -143,5 +144,3 @@ print_r($tra);
 echo "print included files in fuentestra/operaciones.php: ";
 print_r(get_included_files());
 */
-
-?>

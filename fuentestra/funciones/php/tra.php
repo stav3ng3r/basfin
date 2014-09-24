@@ -1,4 +1,4 @@
-<?
+<?php
 function tra(){
 	global $tra;
 	$html=leer_codigo_de_archivo('fuentestra/esquema.html');
@@ -711,4 +711,3 @@ function rpcSeccion($seccion,$accion,$parametros=array()){
 	include 'secciones/'.$seccion.'/rpc/'.$accion.'.php';
 	return $resp['html'];
 }
-?>
