@@ -2,12 +2,11 @@
 session_start();
 header("Content-Type: text/html; charset=utf-8");
 
-if (file_exists('kint/Kint.php') == true) {
-    include 'kint/Kint.php';
-}
-
-
 define('ROOT', realpath(__DIR__));
+
+
+/** Autoload de dependencias de composer */
+include(ROOT . '/librerias/vendor/autoload.php');
 
 $cadenaTraIni = '';
 

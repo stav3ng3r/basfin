@@ -18,9 +18,9 @@ require_once("postgres.inc.php");
 
 $db = new db();
 $db->connect();
-/*$db->set_query("Set DateStyle TO 'SQL,European'");
+$db->set_query("Set DateStyle TO 'SQL,European'");
 $db->execute_query();
-$db->set_query("SET CLIENT_ENCODING TO 'UTF-8'");
+/*$db->set_query("SET CLIENT_ENCODING TO 'UTF-8'");
 $db->execute_query();*/
 /*
 // GUARDAR PHP ID SESSION EN BASE DE DATOS

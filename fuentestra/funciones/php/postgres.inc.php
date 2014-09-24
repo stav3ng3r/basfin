@@ -49,8 +49,11 @@ class db
 
     function connect()
     {
-        global $bandConectOtraBd, $resp;
-        $this->conection = pg_connect(
+        global $whoopsHandler;
+        $whoopsHandler->addDataTable('Conexion', (array)$this);
+
+        $this->error = '';
+        $this->conection = @pg_connect(
             "host=$this->host " .
             "port=$this->port " .
             "dbname=$this->dbname " .
@@ -60,16 +63,9 @@ class db
         );
 
         if (!$this->conection) {
-            if ($bandConectOtraBd == 1) {
-                $resp['estadoConnect'] =
-                    "Error al tratar de realizar la conexión a la base de datos, " .
-                    "verifique los datos de conexión a la base de datos de la versión anterior del sistema " .
-                    "<br><br>host=$this->host user=$this->user password=$this->pass dbname=$this->dbname";
-            } else {
-                trigger_error("Error al tratar de realizar la conexión a la base de datos");
-            }
             $this->connected = 0;
-            return 1;
+            $this->error = "Error al tratar de realizar la conexión a la base de datos, verifique los datos de conexión.";
+            throw new PDOException($this->error);
         } else {
             $this->connected = 1;
             return 0;
@@ -164,7 +160,6 @@ class db
 
     function set_query($new_query)
     {
-        $new_query = str_replace("'null'", 'null', $new_query);
         $new_query = utf8_encode($new_query);
         $this->query = $new_query;
     }
@@ -246,16 +241,6 @@ class db
                 $htmlError .= '</textarea><br>';
                 $htmlError .= '<div style="color:#F00;">' . str_replace(chr(10), '', $last_error) . '</div><br>';
 
-                /*
-                $htmlError.="<b>Directorios PHP utilizados: <a href=\"javascript:mostrarOcultar('directoriosUtilizados');\">[ver más]</a></b><br>";
-                $htmlError.='<div id="directoriosUtilizados" style="display:none; font-size:8px;">';
-                $vDirectory=get_included_files();
-                for($i=0;isset($vDirectory[$i]);$i++){
-                    $htmlError.=$vDirectory[$i].'<br>';
-                }
-                $htmlError.='</div>';
-                */
-
                 $resp['mensaje'] = $htmlError;
             }
         }
@@ -272,7 +257,6 @@ class db
             }
 
             $this->error = 1;
-
             return false;
         }
         $sql_command = substr($this->query, 0, strpos($this->query, " "));
@@ -319,17 +303,11 @@ class db
 
     function has_error()
     {
-        return $this->error == 1;
+        return (!empty($this->error));
     }
 
     function last_error_message()
     {
-        return pg_last_error($this->conection);
+        return pg_last_error($this->conection) or $this->error;
     }
-
-    /*function destroy() {
-        return $this=NULL;
-    }*/
 }
-
-?>

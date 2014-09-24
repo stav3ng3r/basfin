@@ -1,5 +1,8 @@
 {
     "require-dev": {
         "filp/whoops": "1.*"
+    },
+    "require": {
+        "raveren/kint": "dev-master"
     }
 }

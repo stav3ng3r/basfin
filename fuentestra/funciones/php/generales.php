@@ -4,10 +4,15 @@
 include(ROOT . '/librerias/vendor/autoload.php');
 
 $whoops = new \Whoops\Run;
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoopsHandler = new \Whoops\Handler\PrettyPageHandler;
+
+
+$whoops->pushHandler($whoopsHandler);
 $whoops->register();
 
 include 'conexion.php';
+
+
 /*
 include 'seguridad.php';
 include 'cadena.php';
@@ -23,3 +28,7 @@ include 'jpgraph/jpgraph_line.php';
 include 'jpgraph/jpgraph_pie.php';
 include 'jpgraph/jpgraph_pie3d.php';
 include 'jpgraph/jpgraph_bar.php';*/
+
+
+
+// Add a custom table to the layout:
