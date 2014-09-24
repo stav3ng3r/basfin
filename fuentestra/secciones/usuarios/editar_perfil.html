@@ -1,0 +1,57 @@
+<table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+    	<td valign="top">
+            <form class="formA">
+            <h1>Edición del perfil del usuario</h1>
+            <table border="0" cellpadding="2" cellspacing="2">
+                <tr>
+                    <td width="150" class="campo">Usuario</td>
+                    <td width="150">{usuario}</td>
+                </tr>
+                <tr>
+                    <td class="campo">* Nombre</td>
+                    <td><input id="nombre" value="{nombre}" type="text" /></td>
+                </tr>
+                <tr>
+                    <td class="campo">* e-mail</td>
+                    <td><input id="correo" value="{correo}" type="text" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right"><input type="submit" name="accion" value="aceptar" onclick="validarEditarPerfil(); return false;" /></td>
+                </tr>
+            </table>
+            </form>
+        </td>
+        <td width="20"></td>
+        <td valign="top">
+            <form class="formA">
+            <h1>Cambiar clave de acceso</h1>
+            <table border="0" cellpadding="2" cellspacing="2">
+                <tr>
+                    <td width="150" class="campo">* Clave actual</td>
+                    <td width="150"><input id="claveActual" type="password" /></td>
+                </tr>
+                <tr>
+                    <td class="campo">* Clave nueva</td>
+                    <td><input id="claveNueva" type="password" /></td>
+                </tr>
+                <tr>
+                    <td class="campo">* Confirmación de clave nueva</td>
+                    <td><input id="claveNuevaConfirm" type="password" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right"><input type="submit" name="accion" value="aceptar" onclick="validarCambiarClave(); return false;" /></td>
+                </tr>
+            </table>
+            </form>
+        </td>
+    </tr>
+    <tr>
+    	<td colspan="3">
+        	<br />
+			<b>Obs.:</b> Los campos indicados con asterisco (*) son de caracter obligatorio.
+        </td>
+    </tr>
+</table>
+<input type="hidden" id="origen" value="{origen}" />
+<input type="hidden" id="idUsuarioEditar" value="{idUsuarioEditar}" />

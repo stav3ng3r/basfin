@@ -1,0 +1,33 @@
+<h1>Contactese con nosotros</h1>
+<form name="formContactos" class="formA">
+    <table border="0" cellpadding="2" cellspacing="2">
+        <tr>
+            <td width="120" class="campo">* Nombre y Apellido</td>
+            <td width="150"><input id="nombre" type="text" /></td>
+        </tr>
+        <tr>
+            <td class="campo">* e-mail</td>
+            <td><input id="correo" type="text" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Teléfono</td>
+            <td><input id="telefono" type="text" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Asunto</td>
+            <td><input id="asunto" type="text" /></td>
+        </tr>
+        <tr>
+            <td class="campo">* Mensaje</td>
+            <td><textarea id="mensaje"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"><input type="submit" name="accion" value="enviar" onclick="enviarInfoFormContacto(); return false;" /></td>
+        </tr>
+        <tr>
+        	<td colspan="2">
+				<b>Obs.:</b> Los campos indicados con asterisco (*) son de caracter obligatorio.
+            </td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,52 @@
+<h1>Propiedades del Archivo</h1>
+<form name="formArchivo" class="formA">
+    <table border="0" cellpadding="2" cellspacing="2">
+        <tr id="propiedadFilaVistaPrevia">
+            <td width="150" class="campo">Vista previa</td>
+            <td width="180">
+            	<table border="0" cellpadding="0" cellspacing="0">
+                	<tr>
+                    	<td width="16"><a href="javascript:cargarSeccion('archivos','seleccionar_una_imagen','','ventana');"><img src="../../imagenes/bot/16x16/edit.png" /></a></td>
+                        <td width="*" id="vistaArchVinc"></td>
+                    </tr>
+                </table>
+            	<input type="hidden" id="propiedadVistaPreviaIdArchivo" value="{idArchivoVistaPrevia}" />
+            </td>
+        </tr>
+        <tr id="propiedadFilaEnlace">
+            <td class="campo">Enlace</td>
+            <td><input id="propiedadEnlace" value="{enlace}" type="text" style="display:none;" /> <input type="checkbox" name="checkEnlace" value="true" id="checkEnlace" onchange="mostrarOcultarInputEnlaces();" /></td>
+        </tr>
+        <tr id="propiedadFilaPermitirDescargar">
+            <td class="campo">Permitir descargar</td>
+            <td><input type="checkbox" name="propiedadPermitirDescargar" value="true" id="propiedadPermitirDescargar" title="permitir descargar" /></td>
+        </tr>        
+        <tr id="propiedadFilaAmpliar">
+            <td class="campo">Ampliar</td>
+            <td>
+            	<select name="propiedadAmpliar" id="propiedadAmpliar">
+                	<option value="">no ampliar</option>
+                	<option value="standard">standard</option>
+                	<option value="original">tama&ntilde;o original</option>
+                </select>
+            </td>
+        </tr>
+        <tr id="propiedadFilaFirma">
+            <td class="campo">Firma</td>
+            <td>
+            	<select name="propiedadFirma" id="propiedadFirma">
+                	<option>sin firma</option>
+                	<option value="standard">standard</option>
+                	<option value="b">b</option>
+                	<option value="c">c</option>
+                	<option value="d">d</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"><input type="submit" name="accion" value="aceptar" onclick="aplicarPropiedadesArchivo(); return false;" /></td>
+        </tr>
+    </table>
+    <input type="hidden" id="editPropiedad_idArchivo" value="{idArchivo}" />
+    <input type="hidden" id="editPropiedad_tipo" value="{tipo}" />
+</form>

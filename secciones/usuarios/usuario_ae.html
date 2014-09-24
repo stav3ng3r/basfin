@@ -1,0 +1,93 @@
+<h1>Usuarios</h1>
+
+<form class="form-horizontal" action="javascript:agregarEditarUsuariosUsuarios();">
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Usuario</label>  
+        <div class="col-md-8">
+            <input type="text" id="usuaUsuariosAgEd_usuario" class="form-control hidden">
+            <label class="control-label text-success hidden usuaUsuariosAgEd_editar">{usuario}</label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Nombre</label>  
+        <div class="col-md-8">
+            <input type="text" id="usuaUsuariosAgEd_nombre" class="form-control">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">e-mail</label>  
+        <div class="col-md-8">
+            <input type="text" id="usuaUsuariosAgEd_email" class="form-control">
+        </div>
+    </div> 
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput"><span class="hidden usuaUsuariosAgEd_editar">Nueva</span> Clave</label>  
+        <div class="col-md-8">
+            <input type="password" id="usuaUsuariosAgEd_clave" class="form-control">
+        </div>
+    </div> 
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Confirmar Clave</label>  
+        <div class="col-md-8">
+            <input type="password" id="usuaUsuariosAgEd_cclave" class="form-control">
+        </div>
+    </div>
+    
+    <div class="hidden usuaUsuariosAgEd_editar">
+    	<hr>    
+    
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Clave Actual</label>  
+            <div class="col-md-8">
+                <input type="password" id="usuaUsuariosAgEd_aclave" class="form-control">
+            </div>
+        </div>
+    </div>          
+        
+    <!-- Button -->
+    <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-8" align="right">
+            <button id="submit_usuarios_usuarioAgregarEditar" class="btn btn-primary">Aceptar</button>
+        </div>
+    </div>     
+    
+    <input type="hidden" id="usuaUsuariosAgEd_idUsuarioEdit" value="{idUsuario}" />
+</form>
+
+<!--form class="formA">
+<h1>Nuevo usuario</h1>
+<table border="0" cellpadding="2" cellspacing="2">
+    <tr>
+        <td width="150" class="campo">* Usuario</td>
+        <td width="150"><input id="usuarioNuevo" type="text" /></td>
+    </tr>
+    <tr>
+        <td class="campo">* Nombre</td>
+        <td><input id="nombre" type="text" /></td>
+    </tr>
+    <tr>
+        <td class="campo">* e-mail</td>
+        <td><input id="correo" type="text" /></td>
+    </tr>
+    <tr>
+        <td class="campo">* clave</td>
+        <td><input id="claveUsuarioNuevo" type="password" /></td>
+    </tr>
+    <tr>
+        <td class="campo">* confimación de clave</td>
+        <td><input id="claveConfirm" type="password" /></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="right"><input type="submit" name="accion" value="aceptar" onclick="validarAgregarUsuario(); return false;" /></td>
+    </tr>
+    <tr>
+        <td colspan="2"><b>Obs.:</b> Los campos indicados con asterisco (*) son de caracter obligatorio.</td>
+    </tr>
+</table>
+<input type="hidden" id="origen" value="{origen}" />
+</form-->

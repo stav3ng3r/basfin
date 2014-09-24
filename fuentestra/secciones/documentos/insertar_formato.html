@@ -1,0 +1,34 @@
+<form name="formCrearDocumento" class="formA">
+    <table border="0" cellpadding="2" cellspacing="2">
+        <tr>
+        	<td colspan="2"><h1>Insertar formato</h1></td>
+        </tr>
+        <tr>
+            <td><b>Tipo de formato</b></td>
+            <td>
+                <select id="formatoFilaDocumento">
+                    <option value=""></option>
+                    <option value="titulo1">Titulo Principal</option>
+                    <option value="titulo2">Titulo Secundario</option>
+                    <option value="parrafo">Párrafo</option>
+                    <option value="parrafo_archivo">Párrafo con Imágen/Archivo</option>
+                    <option value="archivo">Imágen/Archivo</option>
+                    <option value="editor_formato">Editor de formato</option>
+                    <option value="seccion">Insertar otra sección del sitio</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Permitir:</b></td>
+            <td colspan="2">
+                editar <input type="checkbox" id="permitirEditar" title="permitir editar" checked /> ordenar <input type="checkbox" id="permitirOrdenar" title="permitir ordenar" checked />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+                <input type="submit" name="accion" value="aceptar" onclick="insertarFormatoEnDocumento({idDocumentoFila}); return false;" />
+                <input type="hidden" id="idDocumento" value="{idDocumento}" />
+            </td>
+        </tr>
+    </table>
+</form>

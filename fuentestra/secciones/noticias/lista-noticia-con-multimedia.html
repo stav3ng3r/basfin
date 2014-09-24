@@ -1,0 +1,19 @@
+<table border="0" cellpadding="2" cellspacing="2" width="100%" style="padding-top:10px;" class="noticiasLista">
+	<tr>
+        <td colspan="2"><div class="categoria">{categorias} ({fecha})</div></td>
+    </tr>
+    <tr>
+        <td width="107"><a href="javascript:cargarSeccion('noticias','extenso','idNoticia={idNoticia}','ventana');" title="ver toda la noticia"><img src="{multimedia}" /></a></td>
+        <td width="*" valign="top">
+            <div class="antetitulo">{antetitulo}</div>
+            <div class="titulo"><a href="javascript:cargarSeccion('noticias','extenso','idNoticia={idNoticia}','ventana');" title="ver toda la noticia">{titular}</a></div>
+            <div class="info">
+                {entradilla}<br />
+                <!--<a href="javascript:cargarSeccion('noticias','extenso','idNoticia={idNoticia}','ventana');" title="ver la noticia en extenso">leer más</a><!-- | <a href="javascript:cargarSeccion('noticias','extenso','idNoticia={idNoticia}','ventana');" title="comentar esta noticia">comentar <i>(6 comentarios)</i>--></a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+    	<td colspan="2">{noticiasRelacionadas}</td>
+    </tr>
+</table>

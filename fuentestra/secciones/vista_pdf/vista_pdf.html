@@ -1,0 +1,102 @@
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+    	<td colspan="2">
+        	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+            	<tr>
+                	<td><h2><h1>{titulo}</h1></h2></td>
+                    <td align="right">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="16" id="botPdfNuevaVentana" style="display:none; text-align:center;"><div style="width:16px; height:16px;"><a href="{urlPDF}" title="abrir archivo en ventana completa" target="_blank"><img src="fuentestra/imagenes/bot/16x16/zoom_in.png" /></a></div></td>
+                                <td width="16" id="botPdfGuardar" style="display:none; text-align:center;"><div style="width:16px; height:16px;"><a href="{urlPDF}&destPdf=guardar" title="guardar el archivo en Mi PC"><img src="fuentestra/imagenes/bot/16x16/save.png" /></a></div></td>
+                                <td width="16" id="botPdfEnviarEmail" style="display:none; text-align:center;"><div style="width:16px; height:16px;"><a href="javascript:datos_enviar_correo();" title="enviar archivo por e-mail"><img src="fuentestra/imagenes/bot/16x16/mail_send.png" /></a></div></td>
+                                <td width="16" id="botPdfCancelarEnviarEmail" style="display:none; text-align:center;"><div style="width:16px; height:16px;"><a href="javascript:cancelar_datos_enviar_correo();" title="cancelar enviar archivo por e-mail"><img src="fuentestra/imagenes/bot/16x16/mail_cancel.png" /></a></div></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <script language="javascript">
+		function vista_pdf_iframeCargado(){
+			$('#botPdfNuevaVentana').show();
+			$('#botPdfGuardar').show();
+			$('#botPdfEnviarEmail').show();
+			$('#procesandoPdf').hide();
+			$('#iframePdf').css('width','600px');
+			$('#iframePdf').css('height','400px'); 
+			$("#iframePdf").attr('frameborder','1');
+		}
+	</script>
+	<tr>
+    	<td valign="top" width="600">
+            <div id="procesandoPdf" style="font-size:11px; color:#666; text-align:center;">
+                procesando, aguarde un momento...<br />
+                <img src="fuentestra/imagenes/loader/ajax-loader-horiz-g-gris.gif" /><br />
+                <br />
+            </div>
+            <iframe id="iframePdf" src="{urlPDF}" style="width:1px; height:1px;" frameborder="0" onLoad="vista_pdf_iframeCargado();"></iframe>
+        </td>
+    	<td valign="top">
+            <div id="enviarCorreoPdf" style="padding-left:15px; display:none;">
+            	<h2>Enviar archivo por e-mail</h2>
+                <div id="enviarCorreoPdf_formulario" style="height:230px;">
+                <form class="formA">
+                    <table border="0" cellpadding="0" cellspacing="4">
+                        <tr>
+                            <td class="campo">Para</td>
+                            <td><input type="text" id="paraCorreoPdf" /></td>
+                        </tr>
+                        <tr>
+                            <td class="campo">Asunto</td>
+                            <td><input type="text" id="asuntoCorreoPdf" /></td>
+                        </tr>
+                        <tr>
+                            <td class="campo">Mensaje</td>
+                            <td><textarea id="mensajeCorreoPdf"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td class="campo">&nbsp;</td>
+                            <td align="right"><input type="submit" value="enviar" onclick="enviarCorreoPdf(); return false;" /></td>
+                        </tr>
+                    </table>
+                </form>
+                </div>
+                <div id="enviarCorreoPdf_enviando" style="height:230px; display:none;">
+                	<br />
+                    <br />
+                	<center><img src="fuentestra/imagenes/bot/48x48/mail_send.png" /></center>
+                    <br />
+                    <center><img src="fuentestra/imagenes/loader/ajax-loader-horiz-m-gris.gif" /></center>
+                    <br />
+                    <div style="text-align:center; color:#333;">enviando e-mail a<br /><label id="enviandoParaCorreoPdf"></label></div>
+                </div>
+                <div id="enviarCorreoPdf_enviado" style="height:230px; display:none;">
+                	<br />
+                    <br />
+                    <center><img src="fuentestra/imagenes/bot/48x48/accept.png" /></center>
+                    <br />
+                    <div style="text-align:center; color:#333;">e-mail ha sido enviado correctamente a<br /><label id="enviadoParaCorreoPdf"></label></div>
+                    <br />
+                    <br />
+                    <div style="text-align:center; color:#333;">Desea enviar a otro destinatario?</div>
+                    <br />
+                    <table border="0" cellpadding="0" cellspacing="0" align="center">
+                    	<tr>
+                        	<td><input type="submit" value="SI" onclick="datos_enviar_correo(); return false;" style="width:35px;" /></td>
+                            <td>&nbsp;&nbsp;</td>
+                            <td><input type="submit" value="NO" onclick="cancelar_datos_enviar_correo(); return false;" style="width:35px;" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="detallePdf" style="padding-left:15px; display:none;"></div>
+        </td>
+    </tr>
+</table>
+<input type="hidden" id="secPdf" value="{sec}" />
+<input type="hidden" id="aplPdf" value="{apl}" />
+<input type="hidden" id="paramsPdf" value="{params}" />
+<input type="hidden" id="mostrarDetallePdf" value="{mostrarDetalle}" />
+<input type="hidden" id="urlPDF" value="{urlPDF}" />

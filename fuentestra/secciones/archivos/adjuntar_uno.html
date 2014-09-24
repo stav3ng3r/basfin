@@ -1,0 +1,60 @@
+<h1>Archivo/s</h1>
+<form name="formArchivo" class="formA">
+    <table border="0" cellpadding="2" cellspacing="2">
+        <tr>
+            <td class="campo">* Subir archivo/s desde mi PC</td>
+            <td colspan="2">
+                <a href="javascript:iniciarMotorUpload();">iniciar motor upload</a>
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td><img id="botonAdjImg" src="fuentestra/imagenes/bot/32x32/attachment.png" border="0"></td>
+                        <td><div id="upload_button">Adjuntar una im&aacute;gen</div></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+        	<td colspan="3"><div id="listadoArchivos"></div></td>
+        </tr>
+        <tr>
+            <td width="250" class="campo">* Categoria <a href="javascript:administrarCategoriasArchivo();" title="administrar categorias"><img src="../../imagenes/bot/16x16/add_to_database.png" /></a></td>
+            <td width="150"><select id="idArchivoCategoria" onchange="document.getElementById('aplicarCategoria').checked=true">{optionsCategorias}</select></td>
+            <td width="20"><input id="aplicarCategoria" type="checkbox" title="aplicar esta categoria a los archivos seleccionados" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Nombre</td>
+            <td><input id="nombre" value="{nombre}" type="text" onfocus="document.getElementById('aplicarNombre').checked=true" /></td>
+            <td><input id="aplicarNombre" type="checkbox" title="aplicar este nombre a los archivos seleccionados" /></td>
+        </tr>        
+        <tr>
+            <td class="campo">Descripcion</td>
+            <td><textarea id="descripcion" onfocus="document.getElementById('aplicarDescripcion').checked=true">{descripcion}</textarea></td>
+            <td><input id="aplicarDescripcion" type="checkbox" title="aplicar esta descripcion a los archivos seleccionados" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Fecha</td>
+            <td><input id="fecha" value="{fecha}" type="text" onfocus="document.getElementById('aplicarFecha').checked=true" /></td>
+            <td><input id="aplicarFecha" type="checkbox" title="aplicar esta fecha a los archivos seleccionados" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Palabras claves</td>
+            <td><input id="palabrasClaves" value="{palabrasClaves}" type="text" onfocus="document.getElementById('aplicarPalabrasClaves').checked=true" title="estas palabras claves te ayudaran a organizar mejor tus archivos" /></td>
+            <td><input id="aplicarPalabrasClaves" type="checkbox" title="aplicar estas palabras claves a los archivos seleccionados" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Firma</td>
+            <td><input id="firma" type="checkbox" onchange="document.getElementById('aplicarFirma').checked=true"></td>
+            <td><input id="aplicarFirma" type="checkbox" title="aplicar firma a los archivos seleccionados" /></td>
+        </tr>
+        <tr>
+            <td colspan="3" align="right"><input type="submit" name="accion" value="aceptar" onclick="procesarFormArchivo(); return false;" /></td>
+        </tr>
+        <tr>
+        	<td colspan="3">
+				<b>Obs.:</b> Los campos indicados con asterisco (*) son de caracter obligatorio.
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" id="origenLlamada_archivos_adjuntar" value="{origenLlamada}" />
+    <input type="hidden" id="preCargarArchivos" value="{preCargarArchivos}" />
+</form>

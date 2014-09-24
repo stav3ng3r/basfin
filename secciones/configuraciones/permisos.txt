@@ -1,0 +1,3 @@
+Sistema - Configuraciones#configuraciones
+Sistema - Cambiar Periodo#cambiarPeriodo
+Sistema - Procesos TERA#procesosTERA

@@ -1,0 +1,71 @@
+<h1>Vista Generador Tipo 2</h1>
+<form class="form1" action="javascript:agregarEditarGenT2Vista();">
+    <table border="0" cellpadding="2" cellspacing="2" width="100%">
+    	<tr>	<!--x-->
+        	<td class="campo">Text</td>	<!--x-->
+            <td><input type="text" id="genT2VisAgEd_text" /></td>	<!--x-->
+        </tr>	<!--x-->
+    	<tr>	<!--x-->
+        	<td class="campo">Seleccionar</td>	<!--x-->
+            <td>	<!--x-->
+				<div style="position:relative;">	<!--x-->
+                    <input type="text" id="genT2VisAgEd_seleccionarInput" onblur="denominar('generador_tipo2','t2Denominar',this.value,'genT2VisAgEd_seleccionarHtml');" />	<!--x-->
+                    <div style="width:16px;height:16px;text-align:center;position:absolute;left:125px;top:7px;"><a href="javascript:cargarSeccion('generador_tipo2','listado','accionPosSeleccionar=id:genT2VisAgEd_seleccionarInput,genT2VisAgEd_seleccionarHtml','ventana');" title="Seleccionar"><img src="fuentestra/imagenes/bot/16x16/search.png"></a></div>	<!--x-->
+                </div>	<!--x-->
+            </td>	<!--x-->
+            <td width="200"><div id="genT2VisAgEd_seleccionarHtml" style="background-color:#EFEFEF; padding:9px; min-height:13px;"></div></td>	<!--x-->
+        </tr>	<!--x-->
+        <tr><td colspan="2" style="height:5px;"></td></tr>	<!--x-->
+        <tr>	<!--x-->
+        	<td colspan="2" style="text-align:center; height:26px; background-color:#E4E4E4; border-bottom:1px solid #666; color:#666; font-weight:bold">Subtitulo</td>	<!--x-->
+        </tr>	<!--x-->
+    	<tr>	<!--x-->
+        	<td class="campo">Integer</td>	<!--x-->
+            <td><input type="text" id="genT2VisAgEd_integer" onkeypress="return soloNumeros(event)" /></td>	<!--x-->
+        </tr>	<!--x-->
+    	<tr>	<!--x-->
+        	<td class="campo">Bigint</td>	<!--x-->
+            <td><input type="text" id="genT2VisAgEd_bigint" class="inputMiles" style="text-align:right;" /></td>	<!--x-->
+        </tr>	<!--x-->
+    	<tr>	<!--x-->
+        	<td class="campo">Decimal</td>	<!--x-->
+            <td><input type="text" id="genT2VisAgEd_decimal" class="inputDecimal" style="text-align:right;" /></td>	<!--x-->
+        </tr>	<!--x-->
+    	<tr>	<!--x-->
+        	<td class="campo">Fecha</td>	<!--x-->
+            <td><input type="text" id="genT2VisAgEd_date" class="inputFecha" style="text-align:center;" /></td>	<!--x-->
+        </tr>	<!--x-->
+    	<tr>	<!--x-->
+        	<td class="campo">Select</td>	<!--x-->
+            <td>	<!--x-->
+            	<select id="genT2VisAgEd_select">	<!--x-->
+                	<option value=""></option>	<!--x-->
+                    <option value="Opcion 1">Opcion 1</option>	<!--x-->
+                    <option value="Opcion 2">Opcion 2</option>	<!--x-->
+                    <option value="Opcion 3">Opcion 3</option>	<!--x-->
+                </select>	<!--x-->
+            </td>	<!--x-->
+        </tr>	<!--x-->
+    	<tr>	<!--x-->
+        	<td class="campo">Textarea</td>	<!--x-->
+            <td><textarea id="genT2VisAgEd_textarea"></textarea></td>	<!--x-->
+        </tr>	<!--x-->
+    	<tr>	<!--x-->
+        	<td class="campo">Radio</td>	<!--x-->
+            <td>	<!--x-->
+            	Radio 1 <input type="radio" id="genT2VisAgEd_radio1" value="Radio 1" /> 	<!--x-->
+                Radio 2 <input type="radio" id="genT2VisAgEd_radio2" value="Radio 2" />	<!--x-->
+            </td>	<!--x-->
+        </tr>	<!--x-->
+    	<tr>	<!--x-->
+        	<td class="campo">Checkbox</td>	<!--x-->
+            <td><input type="checkbox" id="genT2VisAgEd_checkbox" value="t" /></td>	<!--x-->
+        </tr>	<!--x-->
+        <!--e->trCamposInputs:2 -->
+        <tr><td colspan="3" height="10"></td></tr>
+        <tr>
+            <td colspan="3" align="right"><input type="submit" value="aceptar" id="submit_generador_tipo2_t2VistaAgregarEditar" /></td>
+        </tr>
+    </table>
+    <input type="hidden" id="genT2VisAgEd_idT2VistaEdit" value="{idT2Vista}" />
+</form>

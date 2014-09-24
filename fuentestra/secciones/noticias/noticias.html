@@ -1,0 +1,74 @@
+<form class="formA">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" class="noticiasListado">
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td width="*" valign="bottom">
+                            <h1>Listado de noticias</h1>
+                            <div class="permiso_noticias">
+                                <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td><a href="javascript:cargarSeccion('noticias','agregar_editar','','ventana');" title="agregar noticia"><img src="../../imagenes/bot/16x16/add.png" /></a></td>
+                                        <td>&nbsp; <a href="javascript:cargarSeccion('noticias','agregar_editar','','ventana');" title="agregar noticia">Agregar noticia</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                        <td width="240" valign="bottom" align="right">
+                            <table border="0" cellpadding="1" cellspacing="1">
+                            	<tr>
+                                	<td><b>BUSCAR</b></td>
+                                    <td><input id="noticiaFiltro_cadenaBuscar" type="text" value="{cadenaBuscar}" onkeydown="siEnter(event,'cargarListadoDeNoticias();')" /></td>
+                                    <td><a href="javascript:cargarListadoDeNoticias();" title="iniciar búsqueda"><img src="../../imagenes/bot/16x16/accept.png" /></a></td>
+                                </tr>
+                            	<tr class="filaBuscarAvanzada" style="display:none;">
+                                	<td><b>CATEGORÍA</b></td>
+                                    <td><select id="noticiaFiltro_idCat"></select></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            	<tr class="filaBuscarAvanzada" style="display:none;">
+                                	<td><b>DESDE</b></td>
+                                    <td><input id="noticiaFiltro_desde" type="text" title="formato (dd/mm/yyyy)" onkeydown="siEnter(event,'cargarListadoDeNoticias();')" /></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            	<tr class="filaBuscarAvanzada" style="display:none;">
+                                	<td><b>HASTA</b></td>
+                                    <td><input id="noticiaFiltro_hasta" type="text" title="formato (dd/mm/yyyy)" onkeydown="siEnter(event,'cargarListadoDeNoticias();')" /></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr class="filaBuscarOcultarAvanzada" style="display:none;">
+                                	<td colspan="3" align="center"><a href="javascript:ocultarOpcionesAvanzadasDeBusqueda();">[-] ocultar opciones de búsqueda avanzada</a></td>
+                                </tr>
+                                <tr class="filaBuscarMostrarAvanzada">
+                                	<td colspan="3" align="center"><a href="javascript:mostrarOpcionesAvanzadasDeBusqueda();">[+] mostrar opciones de búsqueda avanzada</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <div>
+                    <div id="listadoNoticias"></div>
+                    <div id="botVerMasNoticias">
+                        <br /><br />
+                            <center><input type="submit" name="accion" value="más noticias" onclick="agregarAlListadoDeNoticias(); return false;" /></center>
+                        <br />
+                    </div>
+                    <div id="cargandoNoticias">
+                        <br />
+                        <br />
+                        <div>
+                            <table border="0" cellpadding="2" cellspacing="2" align="center">
+                                <tr>
+                                    <td style="color:#FFF;">cargando noticia...</td>
+                                    <td><img src="../../imagenes/loader/ajax-loader-horiz-c-gris.gif" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" id="cantRegListaNoticias" value="" />
+</form>

@@ -1,0 +1,277 @@
+<?
+
+if($tra['id_usuario']!=''){
+	$db->set_query("insert into sesion_pgsql (id_sesion_pgsql,id_usuario,ip) values (pg_backend_pid(),".$tra['id_usuario'].",'192.168.1.1');");
+	$db->execute_query();
+}
+
+
+//-- ini cargar vectos usuarios ----------------------------------
+ // $sql="select id_usuario, usuario, nombre, correo from usuarios where id_sistema=".$tra['id_sistema'];
+  $sql="select id_usuario, usuario, nombre, correo from usuarios";
+  $db->set_query($sql);
+  $db->execute_query();
+  while($row=$db->get_array()){
+    $vUsuarios[$row['id_usuario']]['usuario']=$row['usuario'];
+    $vUsuarios[$row['id_usuario']]['nombre']=$row['nombre'];
+    $vUsuarios[$row['id_usuario']]['correo']=$row['correo'];
+  }
+//-- fin cargar vectos usuarios ----------------------------------
+//-- ini cargar permisos habilitados ----------------------------
+
+//-- fin cargar permisos habilitados ----------------------------
+
+$accionRPC=recibir_dato('accionRPC','request');
+$seccion=recibir_dato('seccion');
+if(isset($_REQUEST['folder'])==true){
+	$accionRPC='subirArchivo';
+	$seccion='archivos';
+}
+$permisosTxt='';
+if(file_exists('secciones/'.$seccion.'/permisos.txt')==true){
+	$permisosTxt=leer_codigo_de_archivo('secciones/'.$seccion.'/permisos.txt');
+}elseif(file_exists('fuentestra/secciones/'.$seccion.'/permisos.txt')==true){
+	$permisosTxt=leer_codigo_de_archivo('fuentestra/secciones/'.$seccion.'/permisos.txt');
+}
+
+if($permisosTxt!=''){
+	
+	$permisosTxt=str_replace(chr(13),'',$permisosTxt);
+	$vPermisosTxt=explode(chr(10),$permisosTxt);
+
+	for($i=0;isset($vPermisosTxt[$i])==true;$i++){
+		list($detalle,$permiso)=explode('#',$vPermisosTxt[$i]);
+		//$sql="select permiso from permisos where id_sistema=".$tra['id_sistema']." and permiso='$permiso'";
+		$sql="select permiso from permisos where permiso='$permiso'";
+		$db->set_query($sql);
+		$db->execute_query();
+		if(!($row=$db->get_array())){
+			$sql="insert into permisos (permiso, detalle) values ('$permiso', '".utf8_encode($detalle)."')";
+			$db->set_query($sql);
+			$db->execute_query();
+			$sql="insert into usuario_permisos (id_usuario, permiso) values (1, '$permiso')";
+			$db->set_query($sql);
+			$db->execute_query();
+		}
+	}
+}
+if(file_exists('funciones/funciones.php')==true){
+	include 'funciones/funciones.php';
+}
+
+if(file_exists('funciones/extends-fpdf.php')==true){
+	include 'funciones/extends-fpdf.php';
+}
+
+if(file_exists('secciones/'.$seccion.'/funciones.php')==true){
+	include 'secciones/'.$seccion.'/funciones.php';
+}elseif(file_exists('fuentestra/secciones/'.$seccion.'/funciones.php')==true){
+	include 'fuentestra/secciones/'.$seccion.'/funciones.php';
+}
+
+$resp['html']='';
+if($accionRPC!=''){  // consulta al archivo rpc
+	
+	//registrarVisita($seccion,'rpc',$accionRPC);
+	
+	$resp['accionSiguiente']=recibir_dato('accionSiguiente','post');
+	$b=0;
+	if(file_exists('secciones/'.$seccion.'/'.$seccion.'-rpc.php')==true){
+		include 'secciones/'.$seccion.'/'.$seccion.'-rpc.php';$b=1;
+	}elseif(file_exists('fuentestra/secciones/'.$seccion.'/'.$seccion.'-rpc.php')==true){
+		include 'fuentestra/secciones/'.$seccion.'/'.$seccion.'-rpc.php';$b=1;
+	}
+	if($b==0){
+		$resp['mensaje']='no existe el archivo '.$seccion.'-rpc.php en la seccion '.$seccion;
+	}
+}else{
+	$aplicacion=recibir_dato('aplicacion');
+	$accion=recibir_dato('accion');
+	$elementoDest=recibir_dato('elementoDest');
+	$onLoad=recibir_dato('onLoad');
+	$htmlDetectado='';
+	$b=0;
+	
+	//registrarVisita($seccion,$aplicacion);
+
+	$onLoad=utf8_decode($onLoad);
+	
+	if($aplicacion==''){
+		$aplicacion=$seccion;
+	}
+	if(file_exists('estilos/estilos.css')==true){
+		$onLoad.="agregarEstiloCss('estilos/estilos.css');";
+	}else if(file_exists('fuentestra/estilos/estilos.css')==true){
+		$onLoad.="agregarEstiloCss('fuentestra/estilos/estilos.css');";
+	}
+	if(file_exists('secciones/'.$seccion.'/'.$seccion.'.css')==true){
+		$onLoad.="agregarEstiloCss('secciones/".$seccion."/".$seccion.".css');";$b=1;
+	}else if(file_exists('fuentestra/secciones/'.$seccion.'/'.$seccion.'.css')==true){
+		$onLoad.="agregarEstiloCss('fuentestra/secciones/".$seccion."/".$seccion.".css');";$b=1;
+	}
+	if(file_exists('secciones/'.$seccion.'/'.$aplicacion.'.html')==true){
+		$htmlDetectado='local';
+		$resp['html']=leer_codigo_de_archivo('secciones/'.$seccion.'/'.$aplicacion.'.html');$b=1;
+	}else if(file_exists('fuentestra/secciones/'.$seccion.'/'.$aplicacion.'.html')==true){
+		$htmlDetectado='global';
+		$resp['html']=leer_codigo_de_archivo('fuentestra/secciones/'.$seccion.'/'.$aplicacion.'.html');$b=1;	
+	}
+
+	if(file_exists('secciones/'.$seccion.'/'.$aplicacion.'.php')==true){
+		include 'secciones/'.$seccion.'/'.$aplicacion.'.php';$b=1;
+	}elseif(file_exists('fuentestra/secciones/'.$seccion.'/'.$aplicacion.'.php')==true){
+		include 'fuentestra/secciones/'.$seccion.'/'.$aplicacion.'.php';$b=1;
+	}
+	$funcionJs='';
+	if(file_exists('secciones/'.$seccion.'/'.$aplicacion.'.js')==true){
+		$urlFuncion="secciones/".$seccion."/".$aplicacion.".js";$b=1;
+		$funcionJs=leer_codigo_de_archivo('secciones/'.$seccion.'/'.$aplicacion.'.js');
+	}else if(file_exists('fuentestra/secciones/'.$seccion.'/'.$aplicacion.'.js')==true){
+		$urlFuncion='fuentestra/secciones/'.$seccion.'/'.$aplicacion.'.js';$b=1;
+		$funcionJs=leer_codigo_de_archivo('fuentestra/secciones/'.$seccion.'/'.$aplicacion.'.js');
+	}
+
+	if($funcionJs!=''){
+		if(substr_count($funcionJs, 'function inicializar_'.$seccion.'_'.$aplicacion.'()')==1){
+			$onLoad.="agregarFuncionJs('".$urlFuncion."','inicializar_".$seccion."_".$aplicacion."();');";
+		}else if(substr_count($funcionJs, 'function inicializar_'.$seccion.'()')==1){
+			$onLoad.="agregarFuncionJs('".$urlFuncion."','inicializar_".$seccion."();');";
+		}else{
+			$onLoad.="agregarFuncionJs('".$urlFuncion."','');";
+		}
+	}
+	if($b==1){
+		$resp['mensaje']='ok';
+	}else{
+		$resp['mensaje']='no existe la aplicacion '.$aplicacion.' en la seccion '.$seccion;
+	}
+
+	if($htmlDetectado=='local'){
+		$resp['html']=str_replace(' src="imagenes/',' src="secciones/'.$seccion.'/imagenes/',$resp['html']);
+		$resp['html']=str_replace('url(imagenes/','url(secciones/'.$seccion.'/imagenes/',$resp['html']);
+		$resp['html']=str_replace(' src="../../../fuentestra/',' src="fuentestra/',$resp['html']);
+		$resp['html']=str_replace('url(../../../fuentestra/','url(fuentestra/',$resp['html']);
+	}else if($htmlDetectado=='global'){
+		$resp['html']=str_replace(' src="imagenes/',' src="fuentestra/secciones/'.$seccion.'/imagenes/',$resp['html']);
+		$resp['html']=str_replace('url(imagenes/','url(fuentestra/secciones/'.$seccion.'/imagenes/',$resp['html']);	
+		$resp['html']=str_replace(' src="../../imagenes/',' src="fuentestra/imagenes/',$resp['html']);
+		$resp['html']=str_replace('url(../../imagenes/','url(fuentestra/imagenes/',$resp['html']);		
+	}
+
+	$resp['html']=str_replace('{dominio}',$tra['dominio'],$resp['html']);
+	
+	$onLoad=str_replace(chr(92)."'","'",$onLoad);
+	$resp['elementoDest']=$elementoDest;
+	$resp['onLoad']=$onLoad;
+	
+	$anchoContenedor=recibir_dato('anchoContenedor');
+	if($anchoContenedor!=''){
+		$resp['html']='<div style="width:'.$anchoContenedor.';">'.$resp['html'].'</div>';
+	}
+}
+
+if(isset($resp['mensajeBotones'])==true){
+	if($resp['mensajeBotones']!=''){
+		$resp['mensajeBotones']=str_replace('&','(and)',$resp['mensajeBotones']);
+	}
+}
+
+$resp['permisosHabilitados']='';
+if($_SESSION['login']=='si'){
+	$resp['permisosHabilitados']='login';
+}
+if($tra['id_usuario']!=''){
+	/*
+  $sql="
+  	select
+  		permiso
+  	from
+  		usuario_permisos
+  	where
+  		id_sistema=".$tra['id_sistema']." and
+  		id_usuario=".$tra['id_usuario']."
+  ";
+  */
+  
+  
+  $sql="
+  	select
+  		permiso
+  	from
+  		usuario_permisos
+  	where
+  		id_usuario=".$tra['id_usuario']."
+  ";
+  
+  $db->set_query($sql);
+  $db->execute_query();
+  $permisosHabilitados='';
+  while($row=$db->get_array()){
+  	if($resp['permisosHabilitados']!=''){$resp['permisosHabilitados'].=',';}
+  	$resp['permisosHabilitados'].=$row['permiso'];
+  	if($permisosHabilitados!=''){
+  		$permisosHabilitados.=' and ';
+  	}
+  	$permisosHabilitados.=' permiso!=\''.$row['permiso'].'\' ';
+  }
+  if($permisosHabilitados!=''){
+  	$permisosHabilitados=' and ('.$permisosHabilitados.') ';
+  }
+}
+
+$resp['permisosNoHabilitados']='';
+$resp['exigir_login']=$tra['exigir_login'];
+if($_SESSION['login']!='si'){
+	$resp['permisosNoHabilitados']='login';
+	$resp['estado_login']='f';
+}else{
+	$resp['estado_login']='t';
+}
+/*
+$sql="
+	select
+		permiso
+	from
+		permisos
+	where
+		id_sistema=".$tra['id_sistema']." $permisosHabilitados
+";
+*/
+
+
+$sql="
+	select
+		permiso
+	from
+		permisos
+	where
+		1=1 $permisosHabilitados
+";
+
+$db->set_query($sql);
+$db->execute_query();
+while($row=$db->get_array()){
+	if($resp['permisosNoHabilitados']!=''){$resp['permisosNoHabilitados'].=',';}
+	$resp['permisosNoHabilitados'].=$row['permiso'];
+}
+
+if($tra['id_usuario']!=''){
+  //$sql="update usuarios set fecha_ultima_accion=now() where id_sistema=".$tra['id_sistema']." and id_usuario=".$tra['id_usuario'];
+  $sql="update usuarios set fecha_ultima_accion=now() where id_usuario=".$tra['id_usuario'];
+  
+  $db->set_query($sql);
+  $db->execute_query();
+}
+
+//$sql="update usuarios set estado_login=false where id_sistema=".$tra['id_sistema']." and fecha_ultima_accion<'".date('Y-m-d H:i:s',mktime()-900)."' and estado_login=true";
+$sql="update usuarios set estado_login=false where fecha_ultima_accion<'".date('Y-m-d H:i:s',mktime()-900)."' and estado_login=true";
+$db->set_query($sql);
+$db->execute_query();
+
+traAjax($resp);
+
+if($tra['id_usuario']!=''){
+	$db->set_query("delete from sesion_pgsql where id_sesion_pgsql=pg_backend_pid();");
+	$db->execute_query();
+}
+?>

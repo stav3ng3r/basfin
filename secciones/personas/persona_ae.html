@@ -1,0 +1,63 @@
+<h1>Cliente/Proveedor</h1>
+
+<form class="form-horizontal" action="javascript:agregarEditarPersonasPersonas();">
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">CI/RUC</label>  
+        <div class="col-md-8">
+            <input id="persPersonasAgEd_identificador" value="{identificador}" type="text" class="form-control input-md">
+        </div>
+    </div>    
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Persona</label>  
+        <div class="col-md-8">
+            <input id="persPersonasAgEd_persona" value="{persona}" type="text" class="form-control input-md">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Dirección</label>  
+        <div class="col-md-8">
+            <input id="persPersonasAgEd_direccion" value="{direccion}" type="text" class="form-control input-md">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Teléfono</label>  
+        <div class="col-md-8">
+            <input id="persPersonasAgEd_telefono" value="{telefono}" type="tel" class="form-control input-md">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Correo</label>  
+        <div class="col-md-8">
+            <input id="persPersonasAgEd_correo" value="{correo}" type="email" class="form-control input-md">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Nacimiento</label>  
+        <div class="col-md-8">
+            <input id="persPersonasAgEd_nacimiento" value="{nacimiento}" type="text" class="form-control input-md inputFecha" style="text-align:center;">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Observación</label>  
+        <div class="col-md-8">
+            <textarea id="persPersonasAgEd_observacion" class="form-control input-md">{observacion}</textarea>
+        </div>
+    </div>
+    
+    <!-- Button -->
+    <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-8" align="right">
+            <button id="submit_personas_personaAgregarEditar" class="btn btn-primary">Aceptar</button>
+        </div>
+    </div> 
+    
+    <input type="hidden" id="persPersonasAgEd_idPersonaEdit" value="{idPersona}" />
+</form>
+<input type="hidden" id="traCam" value="personaAgregar" />

@@ -1,0 +1,90 @@
+.table-input-dinamico {
+	background-color: #FFFFFF;
+}
+
+.table-input-dinamico thead {
+	background: transparent;
+	color: #333;
+}
+
+.table-input-dinamico td {
+	padding: 3px;
+}
+
+.form-movimientos .has-feedback .form-control-feedback {
+	top: 0;
+	right: 0px;
+}
+
+.barra-movimiento {
+	margin: 0 0 20px 0;
+	background-color: #666;
+	padding: 5px 0;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
+.barra-movimiento .form-control {
+	height: 20px;
+	max-width: 130px;
+	border: none;
+	background: transparent;
+	color: #ccc;
+	font-size: 9pt;	
+}
+
+.barra-movimiento select {
+	padding: 0px;
+    display: inline-block;
+    width: 100px;
+    outline: none;
+    background: transparent; 
+	overflow: hidden;
+	background: no-repeat right #ddd;
+}
+
+.barra-movimiento span {
+	padding-top: 3px;
+	color: #ccc; 	
+}
+
+.barra-movimiento select > option {
+    color: #000;   	
+}
+
+/** UPLOAD **/
+
+.movimiento-adjuntar {
+	width: 560px;
+	margin: 30px auto 10px auto;
+	position: relative;
+	left: 0;
+	right: 0;
+}
+
+.movimiento-adjuntar ul.traUploadAdjuntos {
+	float: left;
+	left: 50%;
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;	
+}
+
+.movimiento-adjuntar ul.traUploadAdjuntos li.traUploadAdjuntar {
+	width: 180px;
+	height: 120px;
+	padding: 35px;
+}
+
+.movimiento-adjuntar ul.traUploadAdjuntos li {
+	position: relative;
+	margin: 3px;
+	float: left;
+	width: 180px;
+	height: 120px;
+	text-align: center;
+	right:50%;
+}

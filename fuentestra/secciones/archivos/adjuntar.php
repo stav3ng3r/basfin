@@ -1,0 +1,91 @@
+<?
+$idsArchivos=recibir_dato('idsArchivos');
+$idArchivoCategoria='';
+$descripcion='';
+$fecha='';
+$palabrasClaves='';
+$firma='';
+if($idsArchivos!=''){
+	$vIdArchivo=explode(',',$idsArchivos);
+	
+	for($i=0;isset($vIdArchivo[$i])==true;$i++){
+		$sql="select * from archivos where 1=1 and id_archivo=".$vIdArchivo[$i];
+		$db->set_query($sql);
+		$db->execute_query();
+		$row=$db->get_array();
+		if($i==0){
+			$bandIdArchivoCategoria=0;
+			$gIdArchivoCategoria=$row['id_archivo_categoria'];
+			$bandNombre=0;
+			$gNombre=$row['nombre'];
+			$bandDescripcion=0;
+			$gDescripcion=$row['descripcion'];
+			$bandFecha=0;
+			$gFecha=$row['fecha_archivo'];
+			$bandPalabrasClaves=0;
+			$gPalabrasClaves=$row['palabras_claves'];
+			$bandFirma=0;
+			$gFirma=$row['firma'];
+		}
+		if($gIdArchivoCategoria!=$row['id_archivo_categoria']){
+			$bandIdArchivoCategoria=1;
+		}
+		if($gNombre!=$row['nombre']){
+			$bandNombre=1;
+		}
+		if($gDescripcion!=$row['descripcion']){
+			$bandDescripcion=1;
+		}
+		if($gFecha!=$row['fecha_archivo']){
+			$bandFecha=1;
+		}
+		if($gPalabrasClaves!=$row['palabras_claves']){
+			$bandPalabrasClaves=1;
+		}
+		if($gFirma!=$row['firma']){
+			$bandFirma=1;
+		}
+	}
+	
+	if($bandIdArchivoCategoria==0){
+		$idArchivoCategoria=$gIdArchivoCategoria;
+	}
+	if($bandNombre==0){
+		$nombre=$gNombre;
+	}
+	if($bandDescripcion==0){
+		$descripcion=$gDescripcion;
+	}
+	if($bandFecha==0){
+		$fecha=$gFecha;
+	}
+	if($bandPalabrasClaves==0){
+		$palabrasClaves=$gPalabrasClaves;
+	}
+	if($bandFirma==0){
+		$firma=$gFirma;
+	}
+}
+$sql="select id_archivo_categoria, archivo_categoria from archivo_categorias where 1=1 order by archivo_categoria";
+$db->set_query($sql);
+$db->execute_query();
+$htmlOptionsCategorias.='<option value=""></option>'.chr(13);
+while($row=$db->get_array()){
+	if($row['id_archivo_categoria']==$idArchivoCategoria){
+		$selected='selected="selected"';
+	}else{
+		$selected='';
+	}
+	$htmlOptionsCategorias.='<option value="'.$row['id_archivo_categoria'].'" '.$selected.' >'.$row['archivo_categoria'].'</option>'.chr(13);
+}
+$resp['html']=str_replace('{optionsCategorias}',$htmlOptionsCategorias,$resp['html']);
+$resp['html']=str_replace('{nombre}',$nombre,$resp['html']);
+$resp['html']=str_replace('{descripcion}',$descripcion,$resp['html']);
+$resp['html']=str_replace('{fecha}',$fecha,$resp['html']);
+$resp['html']=str_replace('{palabrasClaves}',$palabrasClaves,$resp['html']);
+$resp['html']=str_replace('{origenLlamada}',recibir_dato('origenLlamada'),$resp['html']);
+$resp['html']=str_replace('{preCargarArchivos}',$idsArchivos,$resp['html']);
+if($firma=='t'){
+	$resp['html']=str_replace('<input id="firma" type="checkbox"','<input id="firma" type="checkbox" checked="checked"',$resp['html']);
+}
+?>

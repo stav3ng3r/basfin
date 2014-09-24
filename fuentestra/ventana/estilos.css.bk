@@ -1,0 +1,76 @@
+@charset "iso-8859-1";
+.ventana h1{
+	font-size:20px; font-weight:bold; color:#333;
+}
+
+.ventana a:link{ color: #890000; text-decoration:underline;}
+.ventana a:visited{ color: #890000; text-decoration:underline;}
+.ventana a:active{ color: #890000; text-decoration:underline;}
+.ventana a:hover{ color: #4f0303; text-decoration:underline;}
+
+.ventana .formA{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#333;
+}
+
+.ventana .formA input[type='text']{
+	background-image:url(../imagenes/form/input-text.png);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	width:140px;
+	border:0px;
+	height:30px;
+	color:#000000;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.ventana .formA select{
+	background-image:url(../imagenes/form/input-text.png);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	width:150px;
+	border:0px;
+	height:30px;
+	padding-top:6px;
+	padding-bottom:4px;
+	color:#000000;
+}
+
+
+.ventana .formA textarea{
+	background-image:url(../imagenes/form/text-area.png);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	width:140px;
+	border:0px;
+	height:100px;
+	color:#000000;
+	font-size:11px;
+	padding:5px;
+}
+
+.ventana .formA input[type='submit']{
+	background-image:url(../imagenes/form/submit.png);
+	background-position:0px 0px;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	width:110px;
+	border:0px;
+	height:30px;
+	padding-bottom:5px;
+	font-weight:bold;
+	color:#333;
+}
+
+.ventana .formA input[type='submit']:hover{
+	background-position:-110px 0px;
+	color:#000000;
+}
+
+.ventana .formA .campo{
+	font-size:12px;
+	font-weight:bold;
+	text-align:right;
+}

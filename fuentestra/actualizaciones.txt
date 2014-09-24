@@ -1,0 +1,7 @@
+- agregar tabla permisos
+- agregar tabla usuario_permisos
+- agregar campo estado en usuarios not null default true
+- agregar campo fecha_ultima_accion en usuarios null
+- agregar campo estado_login en usuarios not null default false
+
+cbd

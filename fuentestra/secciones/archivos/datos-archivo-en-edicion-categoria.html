@@ -1,0 +1,12 @@
+<div id="recuadroArchivo{idArchivo}">
+    <table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tr>
+            <td style="background-color:#F4F4F4;" width="16"><a href="javascript:quitarDeListaArchivos({idArchivo});" title="eliminar"><img src="../../imagenes/bot/16x16/delete.png" /></a></td>
+            <td style="background-color:#F4F4F4;" width="70" align="center"><a href="{enlace}" title="ampliar">{vistaPrevia}</a></td>
+            <td style="background-color:#F4F4F4; {displayPropiedades}" width="16"><a href="javascript:cargarSeccion('archivos','propiedades','idArchivo={idArchivo}','ventana');" title="propiedades"><img src="../../imagenes/bot/16x16/tools.png" /></a></td>
+            <td style="background-color:#F4F4F4;">{nombre}</td>
+            <td style="background-color:#F4F4F4;" width="60">{tamanho}</td>
+        </tr>
+    </table>
+    <input type="hidden" name="idArchivo" value="{idArchivo}" />
+</div>

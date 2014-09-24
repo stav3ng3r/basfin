@@ -1,0 +1,14 @@
+<h1>Categorías noticias</h1>
+<div style="font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:bold;">Seleccione la/s categoria/s relacionada/s</div>
+<br />
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+    	<td><a href="javascript:cargarSeccion('noticias','agregar_editar_categoria','','ventana');" title="agregar categoría"><img src="../../imagenes/bot/16x16/add.png" /></a></td>
+        <td><a href="javascript:cargarSeccion('noticias','agregar_editar_categoria','','ventana');" title="agregar categoría">Agregar categoría</a></td>
+    </tr>
+</table>
+<form class="formA">
+	<div id="listaNoticiaCategorias"></div>
+    <div id="botAceptarListaNoticiaCategorias" style="text-align:right;"><input type="submit" name="accion" value="aceptar" onclick="aceptarSeleccionNoticiaCategoria(); return false;" /></div>
+</form>
+<input type="hidden" id="onLoadPreSeleccionarCategorias" value="{idsCategorias}" />

@@ -1,0 +1,105 @@
+<h1>Generar ABM</h1>
+<form class="form1" action="javascript:procesarGeneradorABM();">
+    <table border="0" cellpadding="2" cellspacing="2" width="100%">
+        <tr>
+        	<td valign="top">
+                <table border="0" cellpadding="2" cellspacing="2" width="100%">      
+                    <tr>
+                        <td class="campo">* Tipo</td>
+                        <td>
+                            <select id="genABM_tipo">
+                                <option value="1">Tipo 1</option>
+                                <option value="2">Tipo 2</option>
+                                <option value="2">Tipo 3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="campo">* Titulo 1</td>
+                        <td><input type="text" id="genABM_tituloT1" /></td>
+                    </tr>
+                    <tr>
+                        <td width="130" class="campo">* Sección</td>
+                        <td><input type="text" id="genABM_seccion" /></td>
+                    </tr>
+                    <tr>
+                        <td width="130" class="campo">        
+                            <div style="position:relative;">
+                                <div id="genABM_falseT1" style="width:16px;height:16px;position:absolute;left:118px;display:none;"><img src="fuentestra/imagenes/bot/16x16/accept.png"></div>
+                                <div id="genABM_trueT1" style="width:16px;height:16px;position:absolute;left:118px;display:none;"><img src="fuentestra/imagenes/bot/16x16/delete.png"></div>
+                                <span>* Aplicación 1</span>
+                            </div>
+                        </td>
+                        <td><input type="text" id="genABM_aplicacionT1" /></td>
+                    </tr>
+                    <tr>
+                        <td class="campo">* Tabla 1</td>
+                        <td><select id="genABM_tablaT1">{optionTablas}</select></td>
+                    </tr>
+                    
+                    <!--tr>
+                        <td class="campo">Adjuntar</td>
+                        <td><input type="checkbox" id="genABM_adjuntarT1" /></td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="campo">Directorio</td>
+                        <td><input type="text" id="genABM_adjuntarDirectorioT1" /></td>
+                    </tr> 
+                    <tr>
+                        <td class="campo">Campo Adjuntar</td>
+                        <td><select id="genABM_adjuntarCampoT1"></select></td>
+                    </tr-->                                        
+                            
+                    <tr id="genABM_mostrarOcultarTitulo2" style="display:none;">
+                        <td class="campo">* Titulo 2</td>
+                        <td><input type="text" id="genABM_tituloT2" /></td>
+                    </tr>
+                    
+                    <tr id="genABM_mostrarOcultarAplicacion2" style="display:none;">
+                        <td width="130" class="campo">        
+                            <div style="position:relative;">
+                                <div id="genABM_falseT2" style="width:16px;height:16px;position:absolute;left:118px;display:none;"><img src="fuentestra/imagenes/bot/16x16/accept.png"></div>
+                                <div id="genABM_trueT2" style="width:16px;height:16px;position:absolute;left:118px;display:none;"><img src="fuentestra/imagenes/bot/16x16/delete.png"></div>
+                                <span>* Aplicación 2</span>
+                            </div>
+                        </td>
+                        <td><input type="text" id="genABM_aplicacionT2" /></td>
+                    </tr>
+                    <tr id="genABM_mostrarOcultarTabla2" style="display:none;">
+                        <td class="campo">* Tabla 2</td>
+                        <td><select id="genABM_tablaT2"></select></td>
+                    </tr>
+                    <tr>
+                        <td class="campo">* Permiso</td>
+                        <td><select id="genABM_permiso">{optionPermisos}</select></td>
+                    </tr>
+                    <tr id="genABM_mostrarOcultarNuevoPermiso" style="display:none;">
+                        <td class="campo">* Nuevo Permiso</td>
+                        <td><input type="text" id="genABM_nuevoPermiso" /></td>
+                    </tr>
+                </table>
+            </td>
+            <td valign="top" id="genABM_mostrarOcultarCamposTablaT1" style="display:none;">
+                <table border="0" cellpadding="2" cellspacing="2" width="100%">
+                    <tr>
+                        <td colspan="3" style="text-align:center; height:26px; background-color:#E4E4E4; border-bottom:1px solid #666; color:#666; font-weight:bold" id="genABM_tituloTablaT1"></td>
+                    </tr>
+                    <tr id="listarCamposT1"></tr>
+                </table>
+            </td>
+            <td valign="top" id="genABM_mostrarOcultarCamposTablaT2" style="display:none;">
+                <table border="0" cellpadding="2" cellspacing="2" width="100%">
+                    <tr>
+                        <td colspan="3" style="text-align:center; height:26px; background-color:#E4E4E4; border-bottom:1px solid #666; color:#666; font-weight:bold" id="genABM_tituloTablaT2"></td>
+                    </tr>
+                    <tr id="listarCamposT2"></tr>
+                </table>
+            </td>
+       	</tr>
+        <tr><td colspan="3" height="10"></td></tr>
+        <tr>
+            <td colspan="3" align="right"><input type="submit" value="aceptar" id="submit_generador_abm_generarABM" /></td>
+        </tr>
+   	</table>
+</form>

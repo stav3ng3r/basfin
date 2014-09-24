@@ -1,0 +1,23 @@
+ajax loader generado en: http://ajaxload.info/
+generar .js para Cufon (caracteres especiales): http://cufon.shoqolate.com/generate/
+
+z-index de ventanas comienza en 1000 y aumenta de a 100
+	ventana nivel 1		1000
+	ventana nivel 2		1100
+	ventana nivel 3		1200
+	ventana nivel 4		1300
+	ventana nivel 5		1400
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+http://craftyman.net/uploadify-upload-multiple-con-jquery/
+
+http://craftyman.net/wp-content/demos/uploadify/
+
+
+object par ainsertar you tube debajo de elemntos html
+<li><object width="500" height="375"><param name="movie" value="http://www.youtube.com/v/ZWzh9OJ_wM4"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><param name="wmode" value="opaque"></param><embed src="http://www.youtube.com/v/ZWzh9OJ_wM4" wmode="transparent" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="500" height="375"></embed></object></li>

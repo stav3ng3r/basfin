@@ -1,0 +1,32 @@
+<h1>Editar título secundario</h1>
+<table border="0" cellpadding="2" cellspacing="2">
+    <tr>
+        <td>Modo de visualización</td>
+        <td>
+            <select name="presentacionTitulo2" id="presentacionTitulo2" onchange="mostrarOcultarInputTitulos2();">
+                <option value="normal">normal</option>
+                <option value="2columnas">2 columnas</option>
+                <option value="3columnas">3 columnas</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2">
+    <tr>
+        <td>
+            <b>Título</b><br />
+            <input type="text" style="width: 200px;" id="titulo2Columna1Editando" value="{texto:1}" />
+        </td>
+        <td id="tdColumna2">
+            <b>Título</b><br />
+            <input type="text" style="width: 200px;" id="titulo2Columna2Editando" value="{texto:2}" />
+        </td>
+        <td id="tdColumna3">
+            <b>Título</b><br />
+            <input type="text" style="width: 200px;" id="titulo2Columna3Editando" value="{texto:3}" />
+        </td>
+    </tr>
+</table>
+<br />
+<div align="right"><input type="submit" name="accion" value="aceptar" onclick="editarDocumentoTitulo2(); return false;" /></div>
+<input type="hidden" id="idFilaDocumentoEditando" value="{idFilaDocumento}" />

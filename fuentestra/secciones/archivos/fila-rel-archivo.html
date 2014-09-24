@@ -1,0 +1,11 @@
+<div id="archivoRel{c}">
+    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+        <tr>
+            <td width="16" style="background-color:#F7F7F7; border-bottom:1px #999 solid;"><img src="../../imagenes/bot/16x16/up.png" onclick="moverArchivoDeListadoRelArchivos({idArchivo},'up')" class="up" title="subir prioridad" style="cursor:pointer;" /><br /><img src="../../imagenes/bot/16x16/download.png" onclick="moverArchivoDeListadoRelArchivos({idArchivo},'down')" class="down" title="disminuir prioridad" style="cursor:pointer;" /></td>
+            <td width="16" style="background-color:#F7F7F7; border-bottom:1px #999 solid;"><img src="../../imagenes/bot/16x16/edit.png" onclick="cargarSeccion('archivos','adjuntar','origenLlamada=listadoRelArchivos&idsArchivos={idArchivo}','ventana');" title="editar descripción y categorización" style="cursor:pointer;" /><br /><img src="../../imagenes/bot/16x16/delete.png" onclick="quitarArchivoDeListadoRelArchivos({idArchivo})" title="quitar de la lista" style="cursor:pointer;" /></td>
+            <td width="70" align="center" style="background-color:#F7F7F7; border-bottom:1px #999 solid;" title="{nombreExtenso}"><a href="{enlace}">{vistaPrevia}</a></td>
+            <td width="*" style="background-color:#F7F7F7; border-bottom:1px #999 solid;"><label title="{descripcion}">{descripcionResumen}</label></td>
+            <td width="60" style="background-color:#F7F7F7; border-bottom:1px #999 solid;" align="center">{detalle}</td>
+        </tr>
+    </table>
+</div>

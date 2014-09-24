@@ -1,0 +1,221 @@
+<h1>Menú</h1>
+
+<form class="form-horizontal" name="form" action="javascript:agregarEditarMenuMenu();">
+
+    <div class="form-group">
+        <label class="col-md-5 control-label" for="textinput">Denominación</label>  
+        <div class="col-md-7">
+            <input id="menuMenuAgEd_item" type="text" value="{item}" class="form-control input-md" >
+        </div>
+    </div>    
+
+    <div class="form-group">
+        <label class="col-md-5 control-label" for="textinput">
+        	Item Padre
+            <a href="javascript:cargarSeccion('menu','menu_lista','accionPosSeleccionar=id:menuMenuAgEd_cabIdItem,menuMenuAgEd_cabIdItemHtml','ventana');" title="Seleccionar ítem padre"><i class="glyphicon glyphicon-search"></i></a>
+            <a href="javascript:limpiarCabIdItem();" title="Sin padre, ítem principal"><i class="glyphicon glyphicon-remove"></i></a>
+        </label>  
+        <div class="col-md-7">
+            <div style="position:relative;">
+
+                <!--div style="width:16px;height:16px;text-align:center;position:absolute;left:-38px;top:7px;"><a href="javascript:cargarSeccion('menu','menu_lista','accionPosSeleccionar=id:menuMenuAgEd_cabIdItem,menuMenuAgEd_cabIdItemHtml','ventana');" title="Seleccionar ítem padre"><img src="fuentestra/imagenes/bot/16x16/search.png"></a></div>
+                <div style="width:16px;height:16px;text-align:center;position:absolute;left:-19px;top:7px;"><a href="javascript:limpiarCabIdItem();" title="Sin padre, ítem principal"><img src="fuentestra/imagenes/bot/16x16/clear.png"></a></div-->
+				<!--div id="menuMenuAgEd_cabIdItemHtml" style="background-color:#EFEFEF; padding:9px; min-height:13px;"></div-->
+
+                <div id="menuMenuAgEd_cabIdItemHtml" class="denominacion"></div>
+            </div>        
+            <input type="hidden" id="menuMenuAgEd_cabIdItem" value="{cabIdItem}" />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-5 control-label" for="textinput">Orden</label>  
+        <div class="col-md-7">
+            <input id="menuMenuAgEd_orden" type="text" value="{orden}" class="form-control input-md">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-5 control-label" for="textinput">Tipo</label>  
+        <div class="col-md-7">
+            <select class="form-control" name="menuMenuAgEd_tipo" id="menuMenuAgEd_tipo" onchange="mostrarOcultarTrTipoItem();">
+                <option value="">Item sin acción</option>
+                <option value="documento">Documento</option>
+                <option value="aplicacion">Aplicación</option>
+                <option value="href">href (url/javascript)</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-group trTipo_aplicacion" style="display:none;">
+        <label class="col-md-5 control-label" for="textinput">* Sección</label>  
+        <div class="col-md-7">
+            <input id="menuMenuAgEd_seccion" type="text" value="{seccion}" class="form-control input-md" >
+        </div>
+    </div>
+
+    <div class="form-group trTipo_aplicacion" style="display:none;">
+        <label class="col-md-5 control-label" for="textinput">Aplicación</label>  
+        <div class="col-md-7">
+            <input id="menuMenuAgEd_aplicacion" type="text" value="{aplicacion}" class="form-control input-md">
+        </div>
+    </div>
+
+    <div class="form-group trTipo_aplicacion" style="display:none;">
+        <label class="col-md-5 control-label" for="textinput">Parámetros</label>  
+        <div class="col-md-7">
+            <input id="menuMenuAgEd_parametros" type="text" value="{parametros}" class="form-control input-md">
+        </div>
+    </div>
+    
+    
+    
+    <div class="form-group trTipo_documento" style="display:none;">
+        <label class="col-md-5 control-label" for="textinput">* Documento</label>  
+        <div class="col-md-7">
+            <input id="menuMenuAgEd_documento" type="text" value="{documento}" class="form-control input-md" >
+        </div>
+    </div>
+
+    <div class="form-group trTipo_href" style="display:none;">
+        <label class="col-md-5 control-label" for="textinput">* Href</label>  
+        <div class="col-md-7">
+            <input id="menuMenuAgEd_href" type="text" value="{href}" class="form-control input-md" >
+        </div>
+    </div>
+
+    <div class="form-group trTipo_permiso" style="display:none;">
+        <label class="col-md-5 control-label" for="textinput">Permiso</label>  
+        <div class="col-md-7">
+            <input id="menuMenuAgEd_permiso" type="text" value="{permiso}" class="form-control input-md">
+        </div>
+    </div>
+    
+    <div class="form-group trTipo_mostrarEn" style="display:none;">
+        <label class="col-md-5 control-label" for="textinput">Mostrar en</label>  
+        <div class="col-md-7">
+            <select class="form-control" name="menuMenuAgEd_mostrarEn" id="menuMenuAgEd_mostrarEn">
+                <option value="">Entorno</option>
+                <option value="ventana">Ventana</option>
+            </select>
+        </div>
+    </div>    
+    
+    <div class="form-group">
+        <label class="col-md-5 control-label" for="textinput">Visible en menu</label>  
+        <div class="col-md-7">
+            <input type="checkbox" name="menuMenuAgEd_visibleMenu" id="menuMenuAgEd_visibleMenu" value="t" class="form-control input-md">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-5 control-label" for="textinput">Requiere login</label>  
+        <div class="col-md-7">
+            <input type="checkbox" name="menuMenuAgEd_requiereLogin" id="menuMenuAgEd_requiereLogin" value="t" class="form-control input-md">
+        </div>
+    </div>
+    
+    <div class="form-group trTipo_itemDeSistema" style="display:none;">
+        <label class="col-md-5 control-label" for="textinput">Item de Sistema</label>  
+        <div class="col-md-7">
+            <input type="checkbox" name="menuMenuAgEd_itemDeSistema" id="menuMenuAgEd_itemDeSistema" value="t" class="form-control input-md">
+        </div>
+    </div>
+          
+    <!-- Button -->
+    <div class="form-group">
+        <label class="col-md-3 control-label"></label>
+        <div class="col-md-9" align="right">
+        	<button type="submit" id="submit_menu_menuAgregarEditar" class="btn btn-primary">Aceptar</button>
+        </div>
+    </div> 
+    
+    <input type="hidden" id="menuMenuAgEd_idItemEdit" value="{idItem}" />
+    <input type="hidden" id="menuMenuAgEd_usutra" value="{usutra}" />
+</form>
+
+<!--form class="form1" action="javascript:agregarEditarMenuMenu();">
+    <table border="0" cellpadding="2" cellspacing="2">
+        <tr>
+        	<td width="100" class="campo">* Denominación</td>
+            <td><input type="text" id="menuMenuAgEd_item" value="{item}" /></td>
+        </tr>
+        <tr>
+        	<td class="campo">Item padre</td>
+            <td>
+				<div style="position:relative;">
+                    <div style="width:16px;height:16px;text-align:center;position:absolute;left:-38px;top:7px;"><a href="javascript:cargarSeccion('menu','menu_lista','accionPosSeleccionar=id:menuMenuAgEd_cabIdItem,menuMenuAgEd_cabIdItemHtml','ventana');" title="Seleccionar ítem padre"><img src="fuentestra/imagenes/bot/16x16/search.png"></a></div>
+                    <div style="width:16px;height:16px;text-align:center;position:absolute;left:-19px;top:7px;"><a href="javascript:limpiarCabIdItem();" title="Sin padre, ítem principal"><img src="fuentestra/imagenes/bot/16x16/clear.png"></a></div>
+                    <div id="menuMenuAgEd_cabIdItemHtml" style="background-color:#EFEFEF; padding:9px; min-height:13px;"></div>
+                </div>
+            </td>
+			<input type="hidden" id="menuMenuAgEd_cabIdItem" value="{cabIdItem}" />
+        </tr>
+        <tr>
+        	<td width="100" class="campo">Orden</td>
+            <td><input type="text" id="menuMenuAgEd_orden" value="{orden}" /></td>
+        </tr>
+        <tr>
+        	<td width="100" class="campo">Tipo</td>
+            <td>
+            	<select name="menuMenuAgEd_tipo" id="menuMenuAgEd_tipo" onchange="mostrarOcultarTrTipoItem();">
+                	<option value="">Item sin acción</option>
+                	<option value="documento">Documento</option>
+                	<option value="aplicacion">Aplicación</option>
+                    <option value="href">href (url/javascript)</option>
+                </select>
+            </td>
+        </tr>
+        <tr class="trTipo_aplicacion" style="display:none;">
+        	<td width="100" class="campo">* Sección</td>
+            <td><input type="text" id="menuMenuAgEd_seccion" value="{seccion}" /></td>
+        </tr>
+        <tr class="trTipo_aplicacion" style="display:none;">
+        	<td width="100" class="campo">Aplicación</td>
+            <td><input type="text" id="menuMenuAgEd_aplicacion" value="{aplicacion}" /></td>
+        </tr>
+        <tr class="trTipo_aplicacion" style="display:none;">
+        	<td width="100" class="campo">Parámetros</td>
+            <td><input type="text" id="menuMenuAgEd_parametros" value="{parametros}" /></td>
+        </tr>
+        <tr class="trTipo_documento" style="display:none;">
+        	<td width="100" class="campo">* Documento</td>
+            <td><input type="text" id="menuMenuAgEd_documento" value="{documento}" /></td>
+        </tr>
+        <tr class="trTipo_href" style="display:none;">
+        	<td width="100" class="campo">* Href</td>
+            <td><input type="text" id="menuMenuAgEd_href" value="{href}" /></td>
+        </tr>
+        <tr class="trTipo_permiso" style="display:none;">
+        	<td width="100" class="campo">Permiso</td>
+            <td><input type="text" id="menuMenuAgEd_permiso" value="{permiso}" /></td>
+        </tr>
+        <tr class="trTipo_mostrarEn" style="display:none;">
+        	<td width="100" class="campo">Mostrar en</td>
+            <td>
+            	<select name="menuMenuAgEd_mostrarEn" id="menuMenuAgEd_mostrarEn">
+                	<option value="">Entorno</option>
+                	<option value="ventana">Ventana</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+        	<td width="100" class="campo">Visible en menu</td>
+            <td><input type="checkbox" name="menuMenuAgEd_visibleMenu" value="t" id="menuMenuAgEd_visibleMenu" /></td>
+        </tr>
+        <tr>
+        	<td width="100" class="campo">Requiere login</td>
+            <td><input type="checkbox" name="menuMenuAgEd_requiereLogin" value="t" id="menuMenuAgEd_requiereLogin" /></td>
+        </tr>
+        <tr class="trTipo_itemDeSistema" style="display:none;">
+        	<td width="100" class="campo">Item de Sistema</td>
+            <td><input type="checkbox" name="menuMenuAgEd_itemDeSistema" value="t" id="menuMenuAgEd_itemDeSistema" /></td>
+        </tr>
+        <tr><td colspan="2" height="10"></td></tr>
+        <tr>
+            <td colspan="2" align="right"><input type="submit" value="aceptar" id="submit_menu_menuAgregarEditar" /></td>
+        </tr>
+    </table>
+    <input type="hidden" id="menuMenuAgEd_idItemEdit" value="{idItem}" />
+    <input type="hidden" id="menuMenuAgEd_usutra" value="{usutra}" />
+</form-->

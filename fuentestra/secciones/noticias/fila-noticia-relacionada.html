@@ -1,0 +1,12 @@
+<div id="datosNoticiaVinculaId{idNoticia}">
+    <table border="0" cellpadding="2" cellspacing="2" width="100%" style="background-color:#F7F7F7; border-bottom:1px #999 solid;">
+        <tr>
+            <td width="16"><a href="javascript:irDesvincularNoticiaRelacionada({idNoticia});" title="desvincular esta noticia"><img src="../../imagenes/bot/16x16/delete.png" /></a></td>
+            <td width="16"><a href="javascript:cargarSeccion('noticias','extenso','idNoticia={idNoticia}','ventana');" title="ver noticia"><img src="../../imagenes/bot/16x16/zip_file_search.png" /></a></td>
+            <td width="100">{fecha}</td>
+            <td width="*">{titular}</td>
+            <td width="100">{categorias}</td>
+        </tr>
+    </table>
+    <input type="hidden" name="idNoticiasRelNoticia" value="{idNoticia}" />
+</div>

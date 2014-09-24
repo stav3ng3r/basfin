@@ -1,0 +1,130 @@
+<h1>Proyectos</h1>
+
+<form class="form-horizontal" action="javascript:agregarEditarSistemaProyectos();">
+    <!-- Text input-->
+    <div class="row">
+        <div class="col-md-4">
+        
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Proyecto</label>  
+                <div class="col-md-8">
+                    <input id="sistProyectosAgEd_proyecto" type="text" class="form-control input-md" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">e-mail</label>  
+                <div class="col-md-8">
+                    <input id="sistProyectosAgEd_email" type="text" class="form-control input-md">
+                </div>
+            </div>    
+            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Teléfono</label>  
+                <div class="col-md-8">
+                    <input id="sistProyectosAgEd_telefono" type="text" class="form-control input-md">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Dirección</label>  
+                <div class="col-md-8">
+                    <input id="sistProyectosAgEd_direccion" type="text" class="form-control input-md">
+                </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+                <label class="col-md-4 control-label" for="textinput">Ubicación</label>  
+                <div class="col-md-8">
+                    <input id="sistProyectosAgEd_coordenada" type="text" class="form-control input-md">
+                    <a href="#" class="form-control-feedback"><i class="glyphicon glyphicon-map-marker"></i></a>
+                </div>
+            </div>             
+        
+        </div>
+        <div class="col-md-4">
+    
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">País</label>  
+                <div class="col-md-8">
+                    <input id="sistProyectosAgEd_pais" type="text" data-id="{idPais}" value="{pais}" class="form-control input-md" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Ciudad</label>  
+                <div class="col-md-8">
+                    <input id="sistProyectosAgEd_ciudad" type="text" data-id="{idCiudad}" value="{ciudad}" class="form-control input-md" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Zona Horaria</label>  
+                <div class="col-md-8">                    
+                    <select id="sistProyectosAgEd_zonaHoraria" name="selectbasic" class="form-control">
+                        <option value=""></option>
+                    </select>                    
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Firmantes</label>  
+                <div class="col-md-8">
+                    <input id="sistProyectosAgEd_firmantes" type="text" class="form-control input-md">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Categoría</label>  
+                <div class="col-md-8">
+                    <input id="sistProyectosAgEd_categoria" type="text" data-id="{idCategoria}" value="{categoria}" class="form-control input-md" required>
+                </div>
+            </div>                      
+        
+        </div>
+        <div class="col-md-4">
+        
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Lenguaje</label>  
+                <div class="col-md-8">
+                    <select id="sistProyectosAgEd_lenguaje" name="sistProyectosAgEd_lenguaje" class="form-control">
+                        <option value=""></option>
+                    </select>
+                    
+                </div>
+            </div> 
+            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Plantilla</label>  
+                <div class="col-md-8">
+                    <select id="sistProyectosAgEd_plantilla" name="sistProyectosAgEd_plantilla" class="form-control">
+                        <option value=""></option>
+                    </select>
+                    
+                </div>
+            </div>                     
+    
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Logo</label>
+                <div class="col-md-8">
+					<div id="sistProyectosAgEd_adjuntar" data-adjuntos='{adjuntos}'></div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-12">
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-8" align="right">
+                    <button id="submit_sistema_proyectoAgregarEditar" class="btn btn-primary">Aceptar</button>
+                </div>
+            </div> 
+         </div>   
+    </div>       
+    
+    <input type="hidden" id="sistProyectosAgEd_idProyectoEdit" value="{idProyecto}" />
+</form>

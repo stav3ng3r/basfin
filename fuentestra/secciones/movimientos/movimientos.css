@@ -1,0 +1,52 @@
+.movimientosLista tr{
+	background-color:#CCC;
+}
+.movimientosLista tr:hover{
+	background-color:#FFC;
+}
+
+.movimientosLista tr.confirmado{
+	background-color:#ceffb3;
+}
+.movimientosLista tr.confirmado:hover{
+	background-color:#aded8a;
+}
+
+.movimientosLista tr.pendiente{
+	background-color:#CCC;
+}
+.movimientosLista tr.pendiente:hover{
+	background-color:#FFC;
+}
+
+
+.movimientosLista tr.confirmadohoy{
+	background-color:#9add76;
+}
+.movimientosLista tr.confirmadohoy:hover{
+	background-color:#83cb5c;
+}
+
+.movimientosLista tr.pendientehoy{
+	background-color:#a1a1ac;
+}
+.movimientosLista tr.pendientehoy:hover{
+	background-color:#878895;
+}
+
+.movimientosLista tr.vencido{
+	background-color:#fd6e6e;
+}
+.movimientosLista tr.vencido:hover{
+	background-color:#ea5454;
+}
+
+.movimientosLista .cab{
+	background-color:#36C;
+	color:#FFF;
+	font-weight:bold;
+	text-align:center;
+}
+.movimientosLista .cab:hover{
+	background-color:#36C;
+}

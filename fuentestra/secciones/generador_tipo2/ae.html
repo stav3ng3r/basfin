@@ -1,0 +1,93 @@
+<h1>Generador Tipo 2</h1>
+<form class="form1" action="javascript:agregarEditarGenT2();">
+    <table border="0" cellpadding="2" cellspacing="2">
+    	<!--x- ini text -->
+        <tr>
+        	<td width="150" class="campo">text</td>
+            <td><input type="text" id="genT2AgEd_text" /></td>
+        </tr>
+    	<!--x- fin text -->
+        <!--x- ini seleccionarInput -->
+        <tr>
+        	<td width="150" class="campo">seleccionarInput</td>
+            <td>
+				<div style="position:relative;">
+                    <input type="text" id="genT2AgEd_seleccionarInput" onblur="denominar('sec','rpcDenominar',this.value,'genT2AgEd_seleccionarInputHtml');" />
+                    <div style="width:16px;height:16px;text-align:center;position:absolute;left:125px;top:7px;"><a href="javascript:cargarSeccion('sec','apl','accionPosSeleccionar=id:genT1AgEd_seleccionarInput,genT1AgEd_seleccionarInputHtml','ventana');" title="Seleccionar"><img src="fuentestra/imagenes/bot/16x16/search.png"></a></div>
+                </div>
+            </td>
+            <td width="200"><div id="genT2AgEd_seleccionarInputHtml" style="background-color:#EFEFEF; padding:9px; min-height:13px;"></div></td>
+        </tr>
+        <!--x- fin seleccionarInput -->
+        <!--x- ini subtitulo -->
+        <tr><td colspan="2" style="height:5px;"></td></tr>
+        <tr>
+        	<td colspan="2" style="text-align:center; height:26px; background-color:#E4E4E4; border-bottom:1px solid #666; color:#666; font-weight:bold">Subtitulo</td>
+        </tr>
+        <!--x- fin subtitulo -->
+        <!--x- ini integer -->
+    	<tr>
+        	<td width="150" class="campo">integer</td>
+            <td><input type="text" id="genT2AgEd_integer" onkeypress="return soloNumeros(event)" /></td>
+        </tr>
+        <!--x- fin integer -->
+        <!--x- ini bigint -->
+    	<tr>
+        	<td width="150" class="campo">bigint</td>
+            <td><input type="text" id="genT2AgEd_bigint" class="inputMiles" style="text-align:right;" /></td>
+        </tr>
+        <!--x- fin bigint -->
+        <!--x- ini decimal -->
+    	<tr>
+        	<td width="150" class="campo">decimal</td>
+            <td><input type="text" id="genT2AgEd_decimal" class="inputDecimal" style="text-align:right;" /></td>
+        </tr>
+        <!--x- fin decimal -->
+        <!--x- ini date -->
+    	<tr>
+        	<td width="150" class="campo">date</td>
+            <td><input type="text" id="genT2AgEd_date" class="inputFecha" style="text-align:center;" /></td>
+        </tr>
+        <!--x- fin date -->
+        <!--x- ini select -->
+    	<tr>
+        	<td width="150" class="campo">select</td>
+            <td>
+            	<select name="genT2AgEd_select" id="genT2AgEd_select">
+                	<option value=""></option>
+                    <option value="Opcion 1">Opcion 1</option>
+                    <option value="Opcion 2">Opcion 2</option>
+                    <option value="Opcion 3">Opcion 3</option>
+                </select>
+            </td>
+        </tr>
+        <!--x- fin select -->
+        <!--x- ini textarea -->
+    	<tr>
+        	<td width="150" class="campo">textarea</td>
+            <td><textarea id="genT2AgEd_textarea"></textarea></td>
+        </tr>
+        <!--x- fin textarea -->
+        <!--x- ini radio -->
+    	<tr>
+        	<td width="150" class="campo">radio</td>
+            <td>
+            	Radio 1 <input type="radio" id="genT2AgEd_radio1" value="Radio 1" /> 
+                Radio 2 <input type="radio" id="genT2AgEd_radio2" value="Radio 2" />
+            </td>
+        </tr>
+        <!--x- fin radio -->
+        <!--x- ini checkbox -->
+    	<tr>
+        	<td width="150" class="campo">checkbox</td>
+            <td><input type="checkbox" id="genT2AgEd_checkbox" /></td>
+        </tr>
+        <!--x- fin checkbox -->
+        <!--e->trCamposInputs -->
+        <tr><td colspan="3" height="10"></td></tr>
+        <tr>
+            <td colspan="3" align="right"><input type="submit" value="aceptar" id="submit_generador_tipo2_t2AgregarEditar" /></td>
+        </tr>
+    </table>
+    <input type="hidden" id="genT2AgEd_idT2Edit" value="{idT2}" />
+</form>

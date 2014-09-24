@@ -1,0 +1,57 @@
+<h1>Filtrar lista</h1>
+<form name="formFiltrarLista" class="formA">
+    <table border="0" cellpadding="2" cellspacing="2">
+        <tr>
+            <td width="120" class="campo">Tipo</td>
+            <td width="150">
+            	<input type="checkbox" id="tipoMovimientoI" /> Ingreso
+            	<input type="checkbox" id="tipoMovimientoE" /> Egreso
+            </td>
+        </tr>
+        <tr>
+            <td class="campo">Fecha (desde)</td>
+            <td><input type="text" id="fechaMovimientoDesde" value="" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Fecha (Hasta)</td>
+            <td><input type="text" id="fechaMovimientoHasta" value="" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Cliente/Proveedor</td>
+            <td><select id="idContacto">{optionsContactos}</select></td>
+        </tr>
+        <tr>
+            <td class="campo">Concepto</td>
+            <td><select id="idConcepto">{optionsConceptos}</select></td>
+        </tr>
+        <tr>
+            <td class="campo">Observacion</td>
+            <td><input type="text" id="observacion" value="" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Tipo de comprobante</td>
+            <td><input type="text" id="tipoComprobante" value="" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Nro. de comprobante</td>
+            <td><input type="text" id="nroComprobante" value="" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Monto</td>
+            <td><input type="text" id="monto" value="" style="text-align:right;" /></td>
+        </tr>
+        <tr>
+            <td width="120" class="campo">estado</td>
+            <td width="150">
+            	<input type="checkbox" id="estadoP" /> Pendiente<br />
+            	<input type="checkbox" id="estadoC" /> Confirmado
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+            	<input id="submitFormFiltrarLista" type="submit" name="accion" value="filtrar" onclick="validarFiltrarLista(); return false;" />
+				<div id="procesandoFormFiltrarLista" style="display:none;"><table border="0" cellpadding="2" cellspacing="2"><tr><td>Procesando información...</td><td><img src="../../imagenes/loader/ajax-loader-horiz-m-gris.gif" /></td></tr></table></div>
+			</td>
+        </tr>
+    </table>
+</form>

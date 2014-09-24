@@ -1,0 +1,85 @@
+<h1>{titulo}</h1>
+
+<form class="form-horizontal form-movimientos" action="javascript:agregarEditarMovimientosMovimientos();">
+	<div class="row barra-movimiento">
+		<div class="col-md-2">
+            <select id="moviMovimientosAgEd_tipo" title="Tipo" name="moviMovimientosAgEd_tipo" class="form-control">
+                <option value="ingreso">Ingreso</option>
+                <option value="egreso">Egreso</option>
+            </select>
+        </div>
+    
+		<div class="col-md-2">
+            <select id="moviMovimientosAgEd_caja" name="moviMovimientosAgEd_caja" class="form-control">
+				{optionCaja}
+            </select>
+        </div>
+		
+        <div class="col-md-2">
+            <select id="moviMovimientosAgEd_moneda" title="Moneda" name="moviMovimientosAgEd_moneda" class="form-control">
+                <option value="guarani">Guaraní</option>
+            </select>
+        </div>
+
+		<div class="col-md-3">
+        	<input id="moviMovimientosAgEd_fechaIdeal" value="{fechaIdeal}" placeholder="Fecha Ideal" type="text" class="form-control inputFecha text-center">
+        </div>
+        
+		<div class="col-md-2">
+        	<input id="moviMovimientosAgEd_correspondienteMes" value="{correspondienteMes}" placeholder="Mes" type="text" class="form-control text-center">
+        </div>
+        
+		<div class="col-md-1">
+        	<a href="javascript:void(0);" id="moviMovimientosAgEd_sincronizar"><i class="glyphicon glyphicon-refresh"></i></a>
+        </div>        
+    </div>
+
+    <div id="moviMovimientosAgEd_adjuntar" data-adjuntos='{adjuntos}'></div>
+    <div style="clear:both; height: 20px;"></div> 
+    
+	<div class="row">
+        <table class="table-input-dinamico">
+            <thead>
+                <tr>
+                    <td><i class="glyphicon glyphicon-remove" style="visibility:hidden;"></i></td>
+                    <td><label>Fecha *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hora *</label></td>
+                    <td><label>Cliente *</label></td>
+                    <td><label>Comprobante</label></td>
+                    <td><i class="glyphicon glyphicon-plus" style="visibility:hidden;"></i></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td class="form-group">
+                    <div>
+                    	<div class="col-md-7" style="padding-left: 0; padding-right: 3px;">
+                    		<input id="moviMovimientosAgEd_fecha" size="8" value="{fecha}" type="text" class="form-control input-md inputFecha text-center" />
+                    	</div>
+                    	<div class="col-md-5" style="padding: 0">
+                    		<input id="moviMovimientosAgEd_hora" size="2" value="{hora}" type="text" class="form-control input-md inputHora text-center" />
+                    	</div>                        
+                    </div>             
+                    </td>
+                    <td class="form-group"><div><input id="moviMovimientosAgEd_idPersona" value="{persona}" type="text" class="form-control input-md" /></div></td>
+                    <td class="form-group"><div><input id="moviMovimientosAgEd_comprobanteNro" value="{comprobanteNro}" type="text" class="form-control" /></div></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+	<div class="row">
+		<div id="nuevosCampos"></div>
+    </div>
+
+	<div class="row">
+        <div class="col-md-6">
+            <input type="checkbox" name="moviMovimientosAgEd_confirmado" value="t" id="moviMovimientosAgEd_confirmado"> Confirmado
+        </div>    
+        <div class="col-md-6" align="right">
+            <button id="submit_movimientos_movimientoAgregarEditar" class="btn btn-primary">Aceptar</button>
+        </div>
+    </div>
+    <input type="hidden" id="moviMovimientosAgEd_idMovimientoEdit" value="{idMovimiento}" />
+</form>

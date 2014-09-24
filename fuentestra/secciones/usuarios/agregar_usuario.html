@@ -1,0 +1,32 @@
+<form class="formA">
+<h1>Nuevo usuario</h1>
+<table border="0" cellpadding="2" cellspacing="2">
+    <tr>
+        <td width="150" class="campo">* Usuario</td>
+        <td width="150"><input id="usuarioNuevo" type="text" /></td>
+    </tr>
+    <tr>
+        <td class="campo">* Nombre</td>
+        <td><input id="nombre" type="text" /></td>
+    </tr>
+    <tr>
+        <td class="campo">* e-mail</td>
+        <td><input id="correo" type="text" /></td>
+    </tr>
+    <tr>
+        <td class="campo">* clave</td>
+        <td><input id="claveUsuarioNuevo" type="password" /></td>
+    </tr>
+    <tr>
+        <td class="campo">* confimación de clave</td>
+        <td><input id="claveConfirm" type="password" /></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="right"><input type="submit" name="accion" value="aceptar" onclick="validarAgregarUsuario(); return false;" /></td>
+    </tr>
+    <tr>
+        <td colspan="2"><b>Obs.:</b> Los campos indicados con asterisco (*) son de caracter obligatorio.</td>
+    </tr>
+</table>
+<input type="hidden" id="origen" value="{origen}" />
+</form>

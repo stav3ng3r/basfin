@@ -1,0 +1,604 @@
+@charset 'UTF-8';
+
+body {
+	background: url("img/tiny_grid.png") repeat scroll 0 0 #E9E9E9;
+}
+
+.container-fluid{
+	margin: 0px 15px;
+}
+
+#main-navbar {
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 1px 0px rgba(0, 0, 0, 0.05);
+    border: medium none;
+	border-radius: 0px;
+	left: 0px;
+	min-height: 46px;
+	right: 0px;
+	position: absolute;
+	top: 0px !important;
+	z-index: 1030;
+}
+
+form.acceso {
+	position: static;
+	max-width: 400px;
+	margin: 5% auto;
+	padding: 20px 30px 40px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+form.acceso .input-group {
+	margin-top: 20px;
+}
+
+.spin {
+	-webkit-animation: spin 1s infinite linear;
+	-moz-animation: spin 1s infinite linear;
+	-o-animation: spin 1s infinite linear;
+	animation: spin 1s infinite linear;
+}
+
+@-moz-keyframes spin {
+from {
+	-moz-transform: rotate(0deg);
+}
+to {
+	-moz-transform: rotate(360deg);
+}
+}
+
+@-webkit-keyframes
+spin {from {
+	-webkit-transform: rotate(0deg);
+}
+to {
+	-webkit-transform: rotate(360deg);
+}
+}
+
+@keyframes
+spin {from {
+	transform: rotate(0deg);
+}
+to {
+	transform: rotate(360deg);
+}
+}
+
+.navbar-static-top {
+	z-index: 999;
+}
+
+/** JQUERY UI DIALOG OVERLAY **/
+/*
+ .ui-widget-overlay {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ z-index: 1000;
+ }
+ */
+
+/*** TABLE CURVED STYLE ***/
+.table-curved {
+	border-collapse: separate;
+}
+.table-curved {
+	border: solid #ccc 1px;
+	border-radius: 6px;
+	border-left: 0px;
+}
+.table-curved td, .table-curved th {
+	border-left: 1px solid #ccc;
+}
+.table-curved > thead > tr > th {
+	border-top: none;
+	border-bottom: none;
+}
+
+.table-curved th:first-child {
+	border-radius: 6px 0 0 0;
+}
+.table-curved th:last-child {
+	border-radius: 0 6px 0 0;
+}
+.table-curved th:only-child {
+	border-radius: 6px 6px 0 0;
+}
+.table-curved tr:last-child td:first-child {
+	border-radius: 0 0 0 6px;
+}
+.table-curved tr:last-child td:last-child {
+	border-radius: 0 0 6px 0;
+}
+
+.table {
+	background-color: #FFFFFF;
+}
+
+thead a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+thead a.active {
+	color: #000;
+}
+
+.row {
+	margin-bottom: 20px;
+}
+
+.formulario {
+	margin-top: 20px;
+}
+
+.formulario input {
+	height: auto;
+	margin-bottom: 15px;
+}
+
+section {
+	padding: 15px 0;
+}
+
+.cabecera {
+	background-color: #333333;
+	color: #FFFFFF;
+	height: auto;
+	margin-bottom: 0;
+	padding: 20px 20px 0 20px;
+}
+
+footer {
+	background: url('../img/texturaoscura.jpg');
+	/*border-top: 2px dotted #929497;*/
+	height: 150px;
+}
+
+.bloqueado {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #333;
+	filter: alpha(opacity=50); /* IE */
+	opacity: 0.5; /* Safari, Opera */
+	-moz-opacity: 0.50; /* FireFox */
+	z-index: 1100;
+}
+
+#dialogo {
+	z-index: 1101;
+	position: fixed;
+	display: none;
+	margin: auto;
+	top: 20%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+@media (min-width: 768px) {
+	.modal-dialog {
+		width: auto;
+		margin: 30px auto;
+	}
+	.modal-content {
+		-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+	}
+	.modal-sm {
+		width: 300px;
+	}
+}
+
+.denominacion {
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 1.42857143;
+	word-break: break-all;
+	word-wrap: break-word;
+	color: #333;
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.nopadding {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.dropdown-menu {
+	z-index: 1031;
+}
+
+/* Modificaciones al navbar
+ ===============================================*/
+/*
+.navbar-nav > li > a {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 0px 2px 0px 2px;
+}
+*/
+
+.navbar-nav > li > a.calendario {
+	margin: 0px !important;
+	padding: 0px 5px 0px 5px !important;
+}
+/*
+.navbar {
+	min-height: 32px !important;
+	margin-bottom: 0px !important
+}
+*/
+/*
+.navbar-brand {
+	height: 32px;
+	padding-top: 5px !important;
+	padding-bottom: 5px
+}
+*/
+.navbar-inverse {
+	background-color: #333333;
+}
+/*
+.navbar-text {
+	padding: 0px !important;
+	margin: 10px 5px 10px 5px;
+}
+*/
+#nav-menu {
+	min-height: 40px;
+}
+
+#nav-usuario {
+	z-index: 1029;
+}
+
+#nav-usuario.navbar-fixed-top {
+	top: 40px !important;
+	height: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+li.img-perfil {
+	margin: 10px;
+}
+
+div.img-perfil {
+	height: 30px;
+	width: 30px;
+	background: url("img/avatars.png");
+	background-position: -67px 0px;
+}
+
+/*
+.navbar .navbar-header .navbar-brand {
+	color: #CCCCCC;
+	font-weight: 600;
+	position: relative;
+	top: 0;
+}
+*/
+
+/*
+#nav-menu .navbar-brand, #nav-menu .navbar-nav > li > a {
+	padding-top: 10px !important;
+}
+*/
+
+.glyphicon {
+	padding: 0px;
+}
+
+.btn .glyphicon {
+	color: #FFFFFF !important;
+}
+
+.navbar .glyphicon {
+	font-size: 24px;
+}
+
+.navbar p {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.popup {
+	position: relative;
+	right: -150%;
+	transition: right 1s ease 0s;
+}
+
+.popup.in {
+	right: 0px;
+}
+
+.fade {
+	-webkit-transition: opacity 1s linear;
+	transition: opacity 1s linear;
+}
+
+.ui-helper-hidden-accessible {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/*
+ * jQuery UI Autocomplete 1.10.3
+ *
+ * Copyright 2013, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://jqueryui.com/autocomplete/
+ */
+
+.ui-autocomplete {
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: default;
+}
+
+/*
+ * jQuery UI Menu 1.10.3
+ *
+ * Copyright 2013, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu#theming
+ */
+
+.ui-menu {
+	list-style: none;
+	padding: 2px;
+	margin: 0;
+	display: block;
+	outline: none;
+}
+
+.ui-menu .ui-menu {
+	margin-top: -3px;
+	position: absolute;
+	list-style: none;
+}
+
+/*
+ * Bug inline with IE sub menu
+ */
+/* IE9, IE10 */
+@media screen and (min-width: 0\0) {
+	.ui-menu li {
+		list-style-type: none;
+		display: inline;
+		line-height: 0;
+	}
+
+	li.ui-menu-item {
+		/* This fixes the IE10 issue (jQuery UI Issue #8844)*/
+		list-style-type: none;
+	}
+}
+
+.ui-menu .ui-menu-item {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	list-style: none;
+	/* support: IE10, see #8844 */
+	list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}
+
+.ui-menu .ui-menu-divider {
+	margin: 5px -2px 5px -2px;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	border-width: 1px 0 0 0;
+}
+
+.ui-menu .ui-menu-item a {
+	text-decoration: none;
+	display: block;
+	padding: 2px .4em;
+	line-height: 1.5;
+	min-height: 0; /* support: IE7 */
+	font-weight: normal;
+}
+
+.ui-menu .ui-menu-item a.ui-corner-all {
+	-webkit-border-radius: 0px; /* Safari 4 */
+	-moz-border-radius: 0px; /* Firefox 3.6 */
+	border-radius: 0px;
+}
+
+.ui-menu .ui-menu-item a.ui-state-focus, .ui-menu .ui-menu-item a.ui-state-active, .ui-menu .ui-menu-item a.ui-widget-content {
+	font-weight: bold;
+	margin: 0;
+	background-color: #428BCA;
+	border-color: #357EBD;
+	color: #FFFFFF;
+	display: block;
+}
+
+/* Fix problem with border in ui-state-active */
+.ui-menu .ui-menu-item a.ui-state-active {
+	padding: 1px .4em;
+}
+
+.ui-menu .ui-state-disabled {
+	font-weight: normal;
+	margin: .4em 0 .2em;
+	line-height: 1.5;
+}
+
+.ui-menu .ui-state-disabled a {
+	cursor: default;
+}
+
+/* icon support */
+.ui-menu-icons {
+	position: relative;
+}
+
+.ui-menu-icons .ui-menu-item a {
+	position: relative;
+	padding-left: 2em;
+}
+
+/* left-aligned */
+.ui-menu .ui-icon {
+	position: absolute;
+	top: .2em;
+	left: .2em;
+}
+
+/* right-aligned */
+.ui-menu .ui-menu-icon {
+	position: static;
+	float: right;
+}
+
+.ui-menu {
+	width: 200px;
+	margin-bottom: 2em;
+}
+
+/*
+ * jQuery UI CSS Framework 1.10.3
+ *
+ * Copyright 2013, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ *
+ *
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/
+ */
+
+/* Component containers
+ ----------------------------------*/
+
+.ui-widget {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+}
+
+.ui-widget .ui-widget {
+	font-size: 13px;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: inherit;
+}
+
+.ui-widget-content {
+	border: 1px solid #aaaaaa;
+	background: #ffffff url("images/ui-bg_glass_75_ffffff_1x400.png") 50% 50% repeat-x;
+	color: #404040;
+}
+
+.ui-widget-header {
+	font-weight: bold;
+	background-color: #F5F5F5;
+	border-color: #DDDDDD;
+	color: #333333;
+}
+
+.ui-widget-header a {
+	color: #222222;
+}
+
+/* Interaction states
+ ----------------------------------*/
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	color: #333333;
+	background-color: #ffffff;
+	font-weight: normal;
+	border: 1px solid #cccccc;
+}
+
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+	color: #555555;
+	text-decoration: none;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+	color: #333333;
+	background-color: #ebebeb;
+	border-color: #adadad;
+	text-decoration: none;
+}
+
+.ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited {
+	color: #333333;
+	text-decoration: none;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	border: 1px solid #adadad;
+	font-weight: normal;
+	color: #333333;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	color: #333333;
+	text-decoration: none;
+}
+
+.ui-widget :active {
+	outline: none;
+}
+
+.ui-front {
+	z-index: 1050;
+}
+
+h1 {
+	width: 100%;
+	color: #333;
+	background-color: #f5f5f5;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 20px;
+	padding: 10px;
+}
+
+
+#entorno_contenido {
+	margin-top: 20px !important;	
+}
+
+.contenido-titulo {
+	margin-bottom: 0px !important;	
+}
+
+h1 {
+	margin-top: 0px !important;	
+	margin-bottom: 5px !important;	
+}

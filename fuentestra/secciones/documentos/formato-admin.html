@@ -1,0 +1,17 @@
+<div class="permiso_documentos">
+    <div class="adminDocumento" style="position: absolute; width: 685px; {displayAdmin}">
+        <table border="0" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+                <td width="9"><img src="imagenes/admin-bg-izq.png" /></td>
+                <td width="*" height="20" style="background-image: url(imagenes/admin-bg-mosaico.png); background-repeat: repeat-x; background-position: top;">
+                    <a href="javascript:cargarSeccion('documentos','insertar_formato','idDocumentoFila={idDocumentoFila}','ventana');" title="agregar formato debajo de este"><img src="../../imagenes/bot/16x16/add.png" onmouseover="this.width=14" onmouseout="this.width=16" /></a>
+                    <a href="javascript:irEliminarFilaDocumento({idDocumentoFila});" title="eliminar formato"><img src="../../imagenes/bot/16x16/delete.png" onmouseover="this.width=14" onmouseout="this.width=16" /></a>
+                    <a href="javascript:ordenarFilaDocumento({idDocumentoFila},'bajar');" title="mover etiqueta para abajo" class="bajar"><img src="../../imagenes/bot/16x16/download.png" onmouseover="this.width=14" onmouseout="this.width=16" /></a>
+                    <a href="javascript:ordenarFilaDocumento({idDocumentoFila},'subir');" title="mover etiqueta para arriba" class="subir"><img src="../../imagenes/bot/16x16/up.png" onmouseover="this.width=14" onmouseout="this.width=16" /></a>
+                    <a href="javascript:cargarSeccion('documentos','editar_{formato}','idFilaDocumento={idDocumentoFila}','ventana');" title="editar información"><img src="../../imagenes/bot/16x16/edit.png" onmouseover="this.width=14" onmouseout="this.width=16" /></a>
+                </td>
+                <td width="9"><img src="imagenes/admin-bg-der.png" /></td>
+            </tr>
+        </table>
+    </div>
+</div>

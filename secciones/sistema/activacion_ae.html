@@ -1,0 +1,48 @@
+<h1>Activaciones</h1>
+<form class="form-horizontal" action="javascript:agregarEditarSistemaActivaciones();">
+    <div class="form-group">
+        <label class="col-md-4 control-label">* Proyecto</label>  
+        <div class="col-md-8">
+            <input type="text" id="sistActivacionesAgEd_idProyecto" data-id="{idProyecto}" value="{proyecto}" class="form-control input-md" required />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">* Fecha Activación</label>  
+        <div class="col-md-8 form-inline">
+            <input type="text" id="sistActivacionesAgEd_fechaActivacion" size="8"  class="form-control text-center inputFecha" required />
+            <input type="text" id="sistActivacionesAgEd_horaActivacion" size="2" class="form-control text-center inputHora" required />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label">* Fecha Operación</label> 
+        <div class="col-md-8 form-inline">
+            <input type="text" id="sistActivacionesAgEd_fechaOperacion" size="8" class="form-control input-md text-center inputFecha" required />
+            <input type="text" id="sistActivacionesAgEd_horaOperacion" size="2" class="form-control text-center inputHora" required />
+        </div>
+    </div>
+    
+    <!--div class="form-group">
+        <label class="col-md-4 control-label">* Validez</label>  
+        <div class="col-md-8">
+            <input type="text" id="sistActivacionesAgEd_idProyecto" value="{validez}" class="form-control input-md" required />
+        </div>
+    </div-->    
+
+    <div class="form-group">
+        <label class="col-md-4 control-label">Observación</label>  
+        <div class="col-md-8">
+            <textarea id="sistActivacionesAgEd_observacion" class="form-control input-md">{observacion}</textarea>
+        </div>
+    </div>     
+
+    <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-8" align="right">
+            <button id="submit_sistema_activacionAgregarEditar" class="btn btn-primary">Aceptar</button>
+        </div>
+    </div> 
+    
+	<input type="hidden" id="sistActivacionesAgEd_idActivacionEdit" value="{idActivacion}" />
+</form>

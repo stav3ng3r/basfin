@@ -1,0 +1,56 @@
+<style>
+	.compartirFacebook{background-image:url(imagenes/compartir-facebook.jpg); background-repeat:no-repeat; background-position:0px -29px; cursor:pointer;}
+	.compartirFacebook:hover{background-position:0px 0px;}
+	.compartirEmail{background-image:url(imagenes/compartir-correo.jpg); background-repeat:no-repeat; background-position:0px -29px; cursor:pointer;}
+	.compartirEmail:hover{background-position:0px 0px;}
+</style>
+<div style="width:500px;">
+	<div class="permiso_noticias" style="position:relative;">
+    	<div style="position:absolute; left:0px; top:-34px; background-color:#FFF; border-top:2px #000 solid; border-left:2px #000 solid; border-right:2px #000 solid; padding:5px;">
+        	<a href="javascript:cargarSeccion('noticias','agregar_editar','','ventana');" title="agregar noticia"><img src="../../imagenes/bot/24x24/add_page.png" /></a>
+        	<a href="javascript:cargarSeccion('noticias','agregar_editar','idNoticia={idNoticia}','ventana');" title="editar noticia"><img src="../../imagenes/bot/24x24/edit_page.png" /></a>
+            <a href="javascript:irEliminarNoticia({idNoticia});" title="eliminar noticia"><img src="../../imagenes/bot/24x24/delete_page.png" /></a>
+        </div>
+    </div>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    	<tr>
+        	<td width="*" valign="bottom"><div style="background-color:#CCC; font-weight:bold; padding:5px; color:#333; text-transform:uppercase;">NOTICIA {categorias}</div></td>
+            <td width="150" align="right" valign="bottom" style="color:#CCC; font-weight:bold;">COMPARTIR ESTA NOTICIA</td>
+        	<td width="58" height="29" class="compartirFacebook" title="publicar la noticia en mi muro"><a href="http://www.facebook.com/share.php?v=4&src=bm&u={dominio}/index.php?o=enlacedirecto,noticias,{idNoticia}&t=Club Nacional" rel="nofollow" class="external" title="Compartir con Facebook" onClick="window.open(this.href,'sharer','toolbar=0,status=0,width=626,height=436'); return false;"><img src="fuentestra/imagenes/varios/trans.gif" width="58" height="29" /></a></td>
+            <td width="58" height="29" class="compartirEmail" title="enviar por e-mail esta noticia" onclick="cargarSeccion('compartir','email','','ventana');">&nbsp;</td>
+        </tr>
+    </table>
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td><i>{antetitulo}</i></td>
+            <td align="right"><i>{fechaHora}</i></td>
+        </tr>
+    </table>
+    <div style="font-size:20px; font-weight:bold; color:#333;">{titular}</div>
+    <style>
+		.sliderImagenesNoticiaCarousel li{width:500px; height:375px; text-align:center; vertical-align:middle;}
+		.sliderImagenesNoticiaCarousel .botNavIzq{width:18px; height:27px; background-image:url(../../imagenes/varios/nav-izq.png); background-repeat:no-repeat; position:absolute; top:45%; left:10px; background-position:0px 0px; cursor:pointer; z-index:10;}
+		.sliderImagenesNoticiaCarousel .botNavIzq:hover{background-position:-18px 0px;}
+		.sliderImagenesNoticiaCarousel .botNavDer{width:18px; height:27px; background-image:url(../../imagenes/varios/nav-der.png); background-repeat:no-repeat; position:absolute; top:45%; right:18px; background-position:-18px 0px; cursor:pointer; z-index:10;}
+		.sliderImagenesNoticiaCarousel .botNavDer:hover{background-position:0px 0px;}
+    </style>
+    <div id="sliderImagenesNoticia" style="width:500px; height:375px; background-color:#F3F3F3;">
+        <div class="sliderImagenesNoticiaCarousel" style="width:500px; height:375px;">
+            <ul>
+	            {htmlArchivos}
+            </ul>
+            <div class="botNavIzq"></div>
+            <div class="botNavDer"></div>
+        </div>
+    </div>
+    <div style="line-height:20px; text-align:justify;">{entradilla}</div>
+    <br />
+    <div style="line-height:20px; text-align:justify;">{cuerpo}</div>
+	<br />
+    <div id="divArchivosAdjuntosNoMultimedia">{htmlArchivosNoMultimedia}</div>
+    <br />
+	<div id="sectorComentarios" style="display:none;"></div>
+    <div id="sectorNoticiasRelacionadas">{listaDeNoticiasRelacionadas}</div>
+</div>
+<input type="hidden" id="cantArchivosMultimedia" value="{cantArchivosMultimedia}" />

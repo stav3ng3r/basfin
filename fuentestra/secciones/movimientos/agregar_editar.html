@@ -1,0 +1,65 @@
+<h1>{tituloAccion}</h1>
+<form name="formAddMovimiento" class="formA">
+    <table border="0" cellpadding="2" cellspacing="2">
+        <tr>
+            <td width="120" class="campo">* Tipo</td>
+            <td width="150">
+            	<input type="radio" name="tipoMovimiento" value="I" /> Ingreso
+            	<input type="radio" name="tipoMovimiento" value="E" /> Egreso
+            </td>
+            <td width="16">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="campo">* Fecha</td>
+            <td><input type="text" id="fechaMovimiento" value="{fecha}" /></td>
+        </tr>
+        <tr>
+            <td class="campo">* Cliente/Proveedor</td>
+            <td><select id="idContacto">{optionsContactos}</select></td>
+            <td><!--<a href="#" title="agregar cliente/proveedor"><img src="../../imagenes/bot/24x24/add_user.png" /></a>--></td>
+        </tr>
+        <tr>
+            <td class="campo">* Concepto</td>
+            <td><select id="idConcepto">{optionsConceptos}</select></td>
+            <td><!--<a href="#" title="agregar concepto"><img src="../../imagenes/bot/24x24/dollar_currency_sign.png" /></a>--></td>
+        </tr>
+        <tr>
+            <td class="campo">Observacion</td>
+            <td><input type="text" id="observacion" value="{observacion}" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Tipo de comprobante</td>
+            <td><input type="text" id="tipoComprobante" value="{tipoComprobante}" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Nro. de comprobante</td>
+            <td><input type="text" id="nroComprobante" value="{nroComprobante}" /></td>
+        </tr>
+        <tr>
+            <td class="campo">* Monto</td>
+            <td><input type="text" id="monto" value="{monto}" style="text-align:right;" /></td>
+        </tr>
+        <tr>
+            <td class="campo">Fecha de vencimiento</td>
+            <td><input type="text" id="fechaVencimiento" value="{fechaVencimiento}" /></td>
+        </tr>
+        <tr>
+            <td width="120" class="campo">* estado</td>
+            <td width="150">
+            	<input type="radio" name="estado" value="false" /> Pendiente<br />
+            	<input type="radio" name="estado" value="true" /> Confirmado
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+            	<input id="submitFormAddMovimiento" type="submit" name="accion" value="aceptar" onclick="insertarEditarMovimiento('{idMovimiento}'); return false;" />
+				<div id="procesandoFormAddMovimiento" style="display:none;"><table border="0" cellpadding="2" cellspacing="2"><tr><td>Procesando información...</td><td><img src="../../imagenes/loader/ajax-loader-horiz-m-gris.gif" /></td></tr></table></div>
+			</td>
+        </tr>
+        <tr>
+        	<td colspan="2">
+				<b>Obs.:</b> Los campos indicados con asterisco (*) son de caracter obligatorio.
+            </td>
+        </tr>
+    </table>
+</form>

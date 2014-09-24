@@ -1,0 +1,41 @@
+<h1>Auditoría</h1>
+
+<div class="row">
+    <div class="col-md-12">
+		<section>
+        
+            <div class="row">
+                <div class="col-md-9">
+        
+                    <!-- Split button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary"><i class="fa fa-list"></i> Auditoría</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <!--ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:cargarSeccion('sistema','categoria_ae','','ventana');">Agregar</a></li>
+                        </ul-->
+                    </div>
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-3">
+                    <form action="javascript:listarAuditoriaAuditoria();">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="listaAuditoriaCadenaBuscar" placeholder="Buscar">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div><!-- /input-group -->
+
+                    </form>
+                </div>      
+            </div>
+			<div id="listaAuditoria"></div>
+            <input type="hidden" id="listaAuditoriaAccionPosSeleccionar" value="{accionPosSeleccionar}" />
+            <input type="hidden" id="listaAuditoria_tabla" value="{tabla}" />
+            <input type="hidden" id="listaAuditoria_rowid" value="{rowid}" />
+            <input type="hidden" id="listaAuditoria_accion" value="{accion}" />
+		</section>  
+	</div>
+</div>

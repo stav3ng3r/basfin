@@ -1,0 +1,37 @@
+<form class="formA">
+    <h1>Editar Seleccion de archivos</h1>
+    <table>
+        <tr>
+            <td>Seleccione como desea que se vean los archivos</td>
+            <td>
+                <select name="presentacionArchivo" id="presentacionArchivo">
+                    <option value="1imagen">una por fila</option>
+                    <option value="2imagenes">dos por fila</option>
+                    <option value="3imagenes">tres por fila</option>
+                    <option value="4imagenes">cuatro por fila</option>
+                    <option value="slider">transicion slider</option>
+                    <option value="fade">transición fade in/out</option>
+                    <option value="1descargar">descargar archivo</option>
+                    <option value="2descargar">descargar archivo dos por fila</option>
+                    <option value="mp3streaming">streaming de archivos MP3</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <div style="background-color:#333; color:#CCC; padding:5px; font-size:14px;">ARCHIVOS RELACIONADOS</div>
+    <div style="background-color:#CCC;">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td><img src="../../imagenes/bot/24x24/attachment.png" /></td>
+                <td><b>Adjuntar archivo desde &nbsp; </b></td>
+                <td><a href="javascript:cargarSeccion('archivos','','origenLlamada=listadoRelArchivos','ventana');" title="Galería de archivos">Galería de archivos</a></td>
+                <td width="20" align="center">|</td>
+                <td><a href="javascript:cargarSeccion('archivos','adjuntar','origenLlamada=listadoRelArchivos','ventana');" title="Mi PC">Mi PC</a></td>
+            </tr>
+        </table>
+    </div>
+    <div id="listadoRelArchivos"></div>
+    <div style="text-align: right;"><br /><input type="submit" name="accion" value="aceptar" onclick="procesarEditarDocumentoArchivo(); return false;" /></div>
+    <input type="hidden" id="idFilaDocumentoEditando" value="{idFilaDocumento}" />
+    <input type="hidden" id="onLoadRelFilaArchivos" value="{idsArchivos}" />
+</form>

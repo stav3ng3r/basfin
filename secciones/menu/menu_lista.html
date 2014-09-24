@@ -1,0 +1,52 @@
+<h1>Menú</h1>
+
+<div class="row">
+    <div class="col-md-9">
+		<section>
+        
+            <div class="row">
+                <div class="col-md-9">
+                
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="javascript:cargarSeccion('menu','menu_ae','','ventana');"><i class="glyphicon glyphicon-plus-sign"></i> Item Independiente</a>
+                        <a class="btn btn-default" href="javascript:cargarSeccion('menu','','','areaMenu');"><i class="glyphicon glyphicon-refresh"></i> Recargar Menú</a>
+                    </div>                 
+        
+                    <!-- Split button -->
+                    <!--div class="btn-group">
+                        <button type="button" class="btn btn-primary"><i class="fa fa-list"></i> Menú</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:cargarSeccion('menu','menu_ae','','ventana');">Item independiente</a></li>
+                            <li><a href="javascript:cargarSeccion('menu','','','areaMenu');">Recargar menú</a></li>
+                        </ul>
+                    </div-->            
+            
+            
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-3">
+            
+            
+                    <form action="javascript:listarMenuMenu();">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="listaMenuCadenaBuscar" placeholder="Buscar">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </form>
+                </div>      
+            </div>
+            
+            <div id="listaMenu"></div>
+            
+            <input type="hidden" id="listaMenuAccionPosSeleccionar" value="{accionPosSeleccionar}" />
+            <input type="hidden" id="menuMenuLista_idMenu" value="{idMenu}" />
+            <input type="hidden" id="listaMenuOtrosDatos" value="idMenu=menuMenuLista_idMenu" />
+        
+		</section>  
+	</div>
+</div>        

@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FinBas Template</title>
+        
+        <!-- Bootstrap -->
+        <!--link href="fuentestra/funciones/js/css/custom-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet"-->
+        <link href="fuentestra/funciones/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+		<script language="javascript">
+			var funcionesJsCargadas = new Array();
+			var estilosCssCargados = new Array();
+			var rowRPC = new Array();
+			var ventanasCargadas = 0;
+			var nivelVentana = 0;
+			var acCargaFuncion = new Array();
+			var acCargandoFuncion = new Array();
+			var cCargaFuncion = 0;
+			var cListaRelArchivos = 0;
+			var vListaRelArchivos = new Array();
+            var vEtiquetasDocumento = new Array();
+            var editor;
+			var permisosEstado = new Array();
+			var seccionesCargadas = new Array();
+        </script>
+        
+		<script type="application/javascript" src="fuentestra/funciones/js/jquery-1.11.0.min.js"></script>
+        <script type="application/javascript" src="fuentestra/funciones/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script type="application/javascript" src="fuentestra/funciones/js/bootstrap/js/bootstrap.min.js"></script>
+        
+		<script src="fuentestra/funciones/js/jquery.maskedinput.js"></script>
+        <script src="fuentestra/funciones/js/jquery.tipTip.js"></script>        
+        
+             
+        <script language="javascript" type="text/javascript" src="fuentestra/funciones/js/funciones-primarias.js"></script>
+        <script language="javascript" type="text/javascript" src="fuentestra/funciones/js/funciones-sistema.js"></script>
+
+        <script language="javascript" type="text/javascript" src="fuentestra/funciones/js/funciones-fecha.js"></script>
+
+        <script src="fuentestra/funciones/js/editor2/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>	<!-- slider -->
+
+        <script src="fuentestra/funciones/js/jcarousellite_1.0.1c4.js"></script>	<!-- slider -->
+        <script src="fuentestra/funciones/js/jquery.cycle.all.latest.js"></script>	<!-- fade -->
+        
+        <script src="highcharts.js"></script>
+		
+        <!--script src="fuentestra/funciones/js/jquery.ui.core.js"></script>
+        <script src="fuentestra/funciones/js/jquery.ui.widget.js"></script>
+        <script src="fuentestra/funciones/js/jquery.ui.mouse.js"></script>
+        <script src="fuentestra/funciones/js/jquery.ui.draggable.js"></script>
+        <script src="fuentestra/funciones/js/jquery.ui.sortable.js"></script-->
+        
+
+        
+        <script language="javascript" type="text/javascript" src="fuentestra/funciones/js/jquery.upload-1.0.2.js"></script>
+        <script language="javascript" type="text/javascript" src="fuentestra/funciones/js/tra.upload.js"></script>
+        
+		<script language="javascript" type="text/javascript" src="fuentestra/funciones/js/jquery.Jcrop.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="fuentestra/funciones/js/jquery.Jcrop.min.css" />
+        
+        <link rel="stylesheet" type="text/css" href="fuentestra/funciones/js/tipTip.css" />
+        <link rel="stylesheet" type="text/css" href="fuentestra/funciones/js/tra.upload.css" />
+
+        <script language="javascript">
+			function initTipTip(){
+				/*$('body').on('mouseover', '[title]', function(){   
+					if($(this).data('hasTipTip') !== true){
+						$(this).tipTip({activation: "hover", keepAlive: false, delay:10, maxWidth: "auto", edgeOffset: 10, defaultPosition: "top", exit: function(){$(this).hide();} });
+						$(this).data('hasTipTip', true);
+						$(this).trigger('mouseover');
+					}
+				});	*/
+			}
+        </script>
+
+        <script language="javascript">
+			var posClickX = 0;
+			var posClickY = 0;
+			$(document).mousemove(function(e){posClickX = e.pageX; posClickY = e.pageY;});
+			
+			var bCargarEnlaceDirecto=0;
+			function cargarEnlaceDirecto(){
+				if(bCargarEnlaceDirecto==0){
+					{accionJsEnlaceDirecto}
+					bCargarEnlaceDirecto=1;
+				}
+			}
+			
+			$(document).ready(function(){
+				$('body').keydown(function(event){
+					if(event.keyCode == 27){
+						cerrarVentana();
+					}
+					/*if(event.ctrlKey && event.keyCode==73){
+						alert('Tecla Ctrl + i');
+					}*/
+				});
+				
+				// Esto es para el upload			
+				$('body').on('click','.traUploadEditar',function(){
+					var img = $(this).parent('.opciones').siblings('.traUploadContenido').html();
+				});	
+				
+				$('body').on('mouseover', function(){ 
+					$('[title]').data('toggle','tooltip').tooltip();
+				});
+				
+				setTimeout(function(){
+					backHandle();
+				},1000);
+
+/*					
+function backHandle(){
+	var url = document.URL;
+	var splits = url.split('#');
+	var posNumeral = splits[1].split(',');
+	cargarSeccion(posNumeral[0],posNumeral[1]);
+}
+*/
+
+	
+			});
+        </script>                   
+        
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body onload="cargarSeccion('entorno','','','cuerpo'); agregarFuncionJs('fuentestra/funciones/js/funciones-generales.js','');">
+    	<div id="ventanas"></div>
+    	<div id="cuerpo"></div>
+        
+  
+      
+      <div style="position:fixed; z-index: 99999; width: 100%; height: 100%; left: 0px; top: 0px; display: none;" id="cargandoVentana">
+        <table align="center" border="0" cellpadding="5" cellspacing="0">
+          <tr>
+            <td bgcolor="#D2D2D2" style="color: #000000;">cargando ventana</td>
+            <td bgcolor="#D2D2D2"><img src="fuentestra/imagenes/loader/ajax-loader-horiz-m-gris.gif" /></td>
+          </tr>
+        </table>
+      </div>
+      </div-->
+      <div id="vistaErrorFueraEsquema" style="position:absolute; width:600px; left:100px; top:100px; background-color:#FFF; padding:10px; border:1px #000 solid; z-index:999999; display:none;"><div style="text-align:right;"><a href="javascript:cerrarVistaFueraDeEsquema();">[x] cerrar</a><hr /></div><div id="vistaErrorFueraEsquema_contenido"></div></div>
+      <div><form name="openNewTag" action="index.php?o=pdf&s=generador_reportes&a=reporte&idReporte=54&cache=8489" target="_blank"></form></div>
+    </body>
+</html>

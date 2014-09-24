@@ -1,0 +1,9 @@
+<tr>
+	<td class="campo">* seleccionarInput</td>
+	<td>
+		<div style="position:relative;">
+			<div style="width:16px;height:16px;text-align:center;position:absolute;left:5px;top:7px;"><a href="javascript:cargarSeccion('sec','apl','accionPosSeleccionar=id:genT1AgEd_seleccionarInput,genT1AgEd_seleccionarInputHtml','ventana');" title="Seleccionar"><img src="fuentestra/imagenes/bot/16x16/search.png"></a></div>
+			<div id="genT1AgEd_seleccionarInputHtml" style="background-color:#EFEFEF; padding:9px; min-height:13px;"></div>
+		</div>
+	</td>
+</tr>

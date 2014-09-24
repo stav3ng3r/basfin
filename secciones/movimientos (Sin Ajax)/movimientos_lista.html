@@ -1,0 +1,76 @@
+<div class="row contenido-titulo">
+	<div class="col-md-12">
+		<h1 class="text-muted">Movimientos</h1>
+	</div>
+</div>
+<div class="row" id="listaMovimientoContenido">
+    <div class="col-md-9">
+
+        <section>
+            <div class="row">
+            
+                <div class="col-md-9">
+
+                    <div class="btn-group">
+                        <a class="btn btn-default" href="javascript:cargarSeccion('movimientos','movimiento_ae','tipo=ingreso','ventana');">Ingreso</a>
+                        <a class="btn btn-default" href="javascript:cargarSeccion('movimientos','movimiento_ae','tipo=egreso','ventana');">Egreso</a>
+                        
+                        <div class="btn-group">
+                            <a class="btn btn-default" href="javascript:cargarPDF('movimientos','movimiento','');">Reporte</a>
+                            <a type="button" class="btn btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="javascript:cargarPDF('movimientos','movimiento_estadistico','');">Estadistico</a></li>
+                            </ul>
+                        </div>                        
+                    </div>
+                    
+                </div><!-- /.col-lg-6 -->
+                
+                <div class="col-md-3">
+                  <form action="javascript:listarMovimientosMovimientos();">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="listaMovimientoCadenaBuscar" placeholder="Buscar">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                <a href="javascript:$('#listaCategoriaFiltros').slideToggle('slow');" class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-filter"></span></a>
+                            </span>
+                        </div><!-- /input-group -->
+
+						<div id="listaCategoriaFiltros" style="padding:5px; background-image:url(secciones/entorno/img/texturaoscura.jpg); border-bottom:2px dotted #999999; display:none;">
+                        	<div style="color:#CCC; text-align:center; font-size:11px;">búsqueda avanzada</div>
+                            <input type="text" class="form-control" id="filtroValorModo" placeholder="Modo (=,<,>) default '='" style="margin-bottom:5px;" />
+							<input type="text" class="form-control" id="filtroValor" placeholder="Valor" style="margin-bottom:5px;" />
+						</div>
+                  </form>
+                </div>      
+            </div>
+			<div id="listaMovimiento"></div>
+            <input type="hidden" id="listaMovimientoAccionPosSeleccionar" value="{accionPosSeleccionar}" />
+		</section>  
+	</div>
+    <div class="col-md-3 barra-lateral">
+        <section>
+            <div class="panel panel-default">
+              <div class="panel-heading">Saldo</div>
+                <h2 class="text-center">₲ {saldoGral}</h2>
+            </div>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Estadistica Diaria</a></h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div id="rcks" data-grafico='{datos}' style="height: 170px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</section>
+	</div>    
+</div>
+
+<input type="hidden" id="listaMovimientoContenedor" value="{elementoDest}" />

@@ -1,0 +1,32 @@
+<h1>Editar párrafo</h1>
+<table border="0" cellpadding="2" cellspacing="2">
+    <tr>
+        <td>Modo de visualización</td>
+        <td>
+            <select name="presentacionParrafo" id="presentacionParrafo" onchange="mostrarOcultarTextAreaParrafos();">
+                <option value="normal">normal</option>
+                <option value="2columnas">2 columnas</option>
+                <option value="3columnas">3 columnas</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2">
+    <tr>
+        <td>
+            <b>Párrafo</b><br />
+            <textarea style="height: 300px;" id="parrafoColumna1Editando">{texto:1}</textarea>
+        </td>
+        <td id="tdColumna2">
+            <b>Párrafo</b><br />
+            <textarea style="height: 300px;" id="parrafoColumna2Editando">{texto:2}</textarea>
+        </td>
+        <td id="tdColumna3">
+            <b>Párrafo</b><br />
+            <textarea style="height: 300px;" id="parrafoColumna3Editando">{texto:3}</textarea>
+        </td>
+    </tr>
+</table>
+<br />
+<div align="right"><input type="submit" name="accion" value="aceptar" onclick="editarDocumentoParrafo(); return false;" /></div>
+<input type="hidden" id="idFilaDocumentoEditando" value="{idFilaDocumento}" />

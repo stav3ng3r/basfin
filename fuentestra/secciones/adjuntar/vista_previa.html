@@ -1,0 +1,28 @@
+<style type="text/css">
+#target {
+    background-color: #ccc;
+    width: 500px;
+    height: 330px;
+    font-size: 24px;
+    display: block;
+}
+</style>
+
+<img src="index.php?o=ima&archivo=archivos/{imagen}&tipo=2&ancho=600&alto=600&alinear=o" id="cropbox" />
+
+<input type="hidden" id="vistaPrevia_x" />
+<input type="hidden" id="vistaPrevia_y" />
+<input type="hidden" id="vistaPrevia_w" />
+<input type="hidden" id="vistaPrevia_h" />
+
+<input type="hidden" id="vistaPrevia_archivo" value="{archivo}" />
+<input type="hidden" id="vistaPrevia_nombre" value="#{nombre}" />
+        
+<table>
+	<tr>
+    	<td><div style="width:25px; height:25px;"><a id="cropBoxActive" href="#"><i class="glyphicon glyphicon-pencil"></i></a></div></td>
+    	<td><div style="width:25px; height:25px;"><a id="cropBoxSave" href="#"><i class="glyphicon glyphicon-floppy-open"></i></a></div></td>
+    	<td><div style="width:25px; height:25px;"><a id="cropBoxLeftRotate" href="#"><i class="glyphicon glyphicon-chevron-left"></i></a></div></td>
+    	<td><div style="width:25px; height:25px;"><a id="cropBoxRightRotate" href="#"><i class="glyphicon glyphicon-chevron-right"></i></a></div></td>
+    </tr>
+</table>

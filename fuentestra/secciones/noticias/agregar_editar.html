@@ -1,0 +1,83 @@
+<h1>Noticia</h1>
+<form name="formNoticias" class="formB">
+    <table border="0" cellpadding="0" cellspacing="0" width="997">
+        <tr>
+            <td width="640">
+                <table border="0" cellpadding="2" cellspacing="2">
+                    <tr>
+                        <td class="campo">* Fecha/Hora</td>
+                        <td><input id="fechaHora" value="{fechaHora}" type="text" title="formato(20/11/2011 06:10)" /></td>
+                    </tr>
+                    <tr>
+                        <td width="120" class="campo"><table border="0" cellpadding="0" cellspacing="0" align="right"><tr><td><a href="javascript:irCargarRelNoticiaCategorias();" title="vincular a una categoria"><img src="../../imagenes/bot/16x16/add.png" /></a></td><td>&nbsp; Categoria/s</td></tr></table></td>
+                        <td width="150" id="relNoticiaCategorias"></td>
+                    </tr>
+                    <tr>
+                        <td class="campo">* Titular</td>
+                        <td><input id="titular" value="{titular}" type="text" style="width:100%;" /></td>
+                    </tr>
+                    <tr>
+                        <td class="campo">Antetítulo</td>
+                        <td><input id="antetitulo" name="antetitulo" value="{antetitulo}" type="text" style="width:100%;" /></td>
+                    </tr>
+                    <tr>
+                        <td class="campo">* Entradilla</td>
+                        <td><textarea id="entradilla" style="width:530px; height:100px;">{entradilla}</textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="campo">Cuerpo</td>
+                        <td><textarea id="cuerpo" style="width:530px; height:300px;">{cuerpo}</textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="campo">Permitir comentar</td>
+                        <td><input id="permitirComentar" type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td class="campo">Publicado</td>
+                        <td><input id="publicado" type="checkbox" /></td>
+                    </tr>
+                </table>
+            </td>
+            <td width="10">&nbsp;</td>
+            <td width="*" valign="top">
+            	<div style="background-color:#333; color:#CCC; padding:5px; font-size:14px;">ARCHIVOS RELACIONADOS</div>
+                <div style="background-color:#CCC;">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td><img src="../../imagenes/bot/24x24/attachment.png" /></td>
+                            <td><b>Adjuntar archivo desde &nbsp; </b></td>
+                            <td><a href="javascript:cargarSeccion('archivos','','origenLlamada=listadoRelArchivos','ventana');" title="Galería de archivos">Galería de archivos</a></td>
+                            <td width="20" align="center">|</td>
+                            <td><a href="javascript:cargarSeccion('archivos','adjuntar','origenLlamada=listadoRelArchivos','ventana');" title="Mi PC">Mi PC</a></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="listadoRelArchivos"></div>
+                <br />               
+            	<div style="background-color:#333; color:#CCC; padding:5px; font-size:14px;">NOTICIAS RELACIONADOS</div>
+                <div style="background-color:#CCC;">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td><img src="../../imagenes/bot/24x24/copy_paste.png" /></td>
+                            <td><b>Seleccionar noticia relacionada &nbsp; </b></td>
+                            <td><a href="javascript:irSeleccionarNoticiasRelacionadas();" title="Seleccionar noticias relacionadas">aquí</a></td>
+						</tr>
+                    </table>
+                </div>
+                <div id="listaNoticiasRelacionadas"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="right"><input type="submit" name="accion" value="aceptar" onclick="validarFormInsertarEditarNoticia(); return false;" /></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <b>Obs.:</b> Los campos indicados con asterisco (*) son de caracter obligatorio.
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" id="idNoticiaEditando" value="{idNoticia}" />
+    <input type="hidden" id="onLoadRelNoticiaCategorias" value="{idsCategorias}" />
+    <input type="hidden" id="onLoadRelNoticiaArchivos" value="{idsArchivos}" />
+    <input type="hidden" id="onLoadRelNoticiaNoticia" value="{idsNoticiasRelacionadas}" />
+</form>

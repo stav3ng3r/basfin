@@ -1,0 +1,115 @@
+<hr color="#5f9eb6" size="1" />
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td height="16"><a href="javascript:cargarSeccion('generador_tipo2','lista','cadenaBuscar={cadenaBuscarAnt}');" title="Volver a la lista"><img src="fuentestra/imagenes/bot/16x16/back.png"></a></td>
+		<td width="5">&nbsp;</td>
+		<td height="16"><a href="javascript:cargarSeccion('generador_tipo2','lista','cadenaBuscar={cadenaBuscarAnt}');" title="Volver a la lista">Volver a la lista</a></td>
+	</tr>
+</table>
+<hr color="#5f9eb6" size="1" />
+<div id="avisoAnuladoGenT2Bot" style="display:none;"><center><table border="0" cellpadding="0" cellspacing="0"><tr><td><img src="fuentestra/imagenes/bot/32x32/block.png" /></td><td style="color:#9c201a; font-weight:bold; font-size:14px; padding-left:10px;">ESTE REGISTRO ESTA ANULADO</td></tr></table></center></div>
+<h1>Generador Tipo 2</h1>
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="permiso_genT2">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td class="botEditarGenT2Bot" style="display:none;" height="16"><a href="javascript:cargarSeccion('generador_tipo2','ae','idT2={idT2}','ventana');" title="Editar"><img src="fuentestra/imagenes/bot/16x16/edit.png"></a></td>
+					<td class="botEditarGenT2Bot" style="display:none;" width="5">&nbsp;</td>
+					<td class="botEditarGenT2Bot" style="display:none;" height="16"><a href="javascript:cargarSeccion('generador_tipo2','ae','idT2={idT2}','ventana');" title="Editar">Editar</a></td>
+					<td class="botEditarGenT2Bot" style="display:none;" width="10">&nbsp;</td>
+				</tr>
+			</table>
+		</td>
+        
+		<td class="permiso_genT2">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td class="botEliminarGenT2Bot" style="display:none;" height="16"><a href="javascript:dialogo('Confirma que desea eliminar esta registro?','si:eliminarT2();|no','eliminar');" title="Eliminar"><img src="fuentestra/imagenes/bot/16x16/delete.png"></a></td>
+					<td class="botEliminarGenT2Bot" style="display:none;" width="5">&nbsp;</td>
+					<td class="botEliminarGenT2Bot" style="display:none;" height="16"><a href="javascript:dialogo('Confirma que desea eliminar esta registro?','si:eliminarT2();|no','eliminar');" title="Eliminar">Eliminar</a></td>
+					<td class="botEliminarGenT2Bot" style="display:none;" width="10">&nbsp;</td>
+				</tr>
+			</table>
+		</td>
+
+		<td class="botAnularGenT2Bot" style="display:none;" height="16"><a href="javascript:dialogo('Confirma que desea anular este registro?','si:anularActivarT2(0);|no','');" title="Anular"><img src="fuentestra/imagenes/bot/16x16/block.png"></a></td>
+		<td class="botAnularGenT2Bot" style="display:none;" width="5">&nbsp;</td>
+		<td class="botAnularGenT2Bot" style="display:none;" height="16"><a href="javascript:dialogo('Confirma que desea anular este registro?','si:anularActivarT2(0);|no','');" title="Anular">Anular</a></td>
+		<td class="botAnularGenT2Bot" style="display:none;" width="10">&nbsp;</td>
+
+		<td class="botActivarGenT2Bot" style="display:none;" height="16"><a href="javascript:dialogo('Confirma que desea activar este registro?','si:anularActivarT2(1);|no','');" title="Activar"><img src="fuentestra/imagenes/bot/16x16/green_button.png"></a></td>
+		<td class="botActivarGenT2Bot" style="display:none;" width="5">&nbsp;</td>
+		<td class="botActivarGenT2Bot" style="display:none;" height="16"><a href="javascript:dialogo('Confirma que desea activar este registro?','si:anularActivarT2(1);|no','');" title="Activar">Activar</a></td>
+		<td class="botActivarGenT2Bot" style="display:none;" width="10">&nbsp;</td>
+
+		<td class="botConfirmarGenT2Bot" style="display:none;" height="16"><a href="javascript:dialogo('Confirma que desea confirmar estos datos?','si:confirmarDesconfirmarT2(1);|no','ok');" title="Confirmar"><img src="fuentestra/imagenes/bot/16x16/folder_accept.png"></a></td>
+		<td class="botConfirmarGenT2Bot" style="display:none;" width="5">&nbsp;</td>
+		<td class="botConfirmarGenT2Bot" style="display:none;" height="16"><a href="javascript:dialogo('Confirma que desea confirmar estos datos?','si:confirmarDesconfirmarT2(1);|no','ok');" title="Confirmar">Confirmar</a></td>
+		<td class="botConfirmarGenT2Bot" style="display:none;" width="10">&nbsp;</td>
+
+		<td class="botDesbloquearGenT2Bot" style="display:none;" height="16"><a href="javascript:dialogo('Confirma que desea desconfirmar estos datos?','si:confirmarDesconfirmarT2(0);|no','ok');" title="Desconfirmar"><img src="fuentestra/imagenes/bot/16x16/folder_conflicted.png"></a></td>
+		<td class="botDesbloquearGenT2Bot" style="display:none;" width="5">&nbsp;</td>
+		<td class="botDesbloquearGenT2Bot" style="display:none;" height="16"><a href="javascript:dialogo('Confirma que desea desconfirmar estos datos?','si:confirmarDesconfirmarT2(0);|no','ok');" title="Desconfirmar">Desconfirmar</a></td>
+		<td class="botDesbloquearGenT2Bot" style="display:none;" width="10">&nbsp;</td>
+        
+		<td class="botComprobanteGenT2Bot" style="display:none;" height="16"><a href="javascript:cargarPDF('generador_tipo2','vista_detalle','idT2={idT2}');" title="Comprobante"><img src="fuentestra/imagenes/formatos/16x16/pdf.png"></a></td>
+		<td class="botComprobanteGenT2Bot" style="display:none;" width="5">&nbsp;</td>
+		<td class="botComprobanteGenT2Bot" style="display:none;" height="16"><a href="javascript:cargarPDF('generador_tipo2','vista_detalle','idT2={idT2}');" title="Comprobante">Comprobante</a></td>
+		<td class="botComprobanteGenT2Bot" style="display:none;" width="10">&nbsp;</td>
+	</tr>
+</table>
+<table border="0" cellpadding="4" cellspacing="2" style="text-align:center;" width="100%">
+	<tr>
+		<td width="90" style="background-color:#a2c9d3; font-weight:bold; color:#193941;">Nro</td>	<!--x-->
+		<td width="400" style="background-color:#a2c9d3; font-weight:bold; color:#193941;">Text</td>	<!--x-->
+		<td width="90" style="background-color:#a2c9d3; font-weight:bold; color:#193941;">Fecha</td>	<!--x-->
+		<td width="130" style="background-color:#a2c9d3; font-weight:bold; color:#193941;">Select</td>	<!--x-->
+		<td width="90" style="background-color:#a2c9d3; font-weight:bold; color:#193941;">Radio</td>	<!--x-->
+		<td width="*" style="background-color:#a2c9d3; font-weight:bold; color:#193941;">Textarea</td>	<!--x-->
+		<!--e->trCabVista -->
+		<td width="90" style="background-color:#a2c9d3; font-weight:bold; color:#193941;">Total</td>
+		<td width="16" style="background-color:#a2c9d3; font-weight:bold; color:#193941;">&nbsp;</td>
+	</tr>
+	<tr>
+		<td style="background-color:#d3eff6;">{idT2}</td>	<!--x-->
+		<td style="background-color:#d3eff6;">{text}</td>	<!--x-->
+		<td style="background-color:#d3eff6;">{date}</td>	<!--x-->
+		<td style="background-color:#d3eff6;">{select}</td>	<!--x-->
+		<td style="background-color:#d3eff6;">{radio}</td>	<!--x-->
+		<td style="background-color:#d3eff6;">{textarea}</td>	<!--x-->
+		<!--e->trDatosCabVista -->
+		<td style="background-color:#d3eff6; text-align:right;" id="genT2Vista_total"></td>
+		<td style="background-color:#d3eff6;">{infoAuditoria}</td>
+	</tr>
+</table>
+<h2>Vista Generador Tipo 2</h2>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td>
+			<table border="0" cellpadding="0" cellspacing="0">
+                <tr class="permiso_agregarGenT2Vista">
+                    <td class="botAgregarGenT2Vista" style="display:none;" height="16"><a href="javascript:cargarSeccion('generador_tipo2','t2Vista_ae','','ventana');" title="Agregar"><img src="fuentestra/imagenes/bot/16x16/add.png"></a></td>
+                    <td class="botAgregarGenT2Vista" style="display:none;" width="5">&nbsp;</td>
+                    <td class="botAgregarGenT2Vista" style="display:none;" height="16"><a href="javascript:cargarSeccion('generador_tipo2','t2Vista_ae','','ventana');" title="Agregar">Agregar</a></td>
+				</tr>
+			</table>
+		</td>
+		<td align="right">
+			<form class="formFind" action="javascript:listarGenT2Vista();">
+				<table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="50"><b>BUSCAR</b></td>
+                        <td width="150"><input type="text" id="listaGenT2VistaCadenaBuscar" title="ingrese lo que desea buscar" /></td>
+                        <td width="16"><input type="submit" value="" title="procesar búsqueda" /></td>
+                    </tr>
+                </table>
+			</form>
+		</td>
+	</tr>
+</table>
+<div id="listaGenT2Vista"></div>
+<input type="hidden" id="genT2Vista_idT2" />
+<input type="hidden" id="genT2Vista_estado" />
+<input type="hidden" id="genT2Vista_confirmado" />
+<input type="hidden" id="listaGenT2VistaOtrosDatos" value="idT2=genT2Vista_idT2" />

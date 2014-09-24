@@ -1,0 +1,38 @@
+<form class="formA" action="javascript:procesarPermisosUsuario({idUsuario});">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td>
+            	<h1>Permisos del usuario {usuario}</h1>
+                <select name="usuaPermisos_rolesPermisos" id="usuaPermisos_rolesPermisos">{option}</select>
+                &nbsp;&nbsp;
+                <select id="usuaPermisos_administracion" onChange="cambiarAdministracionPermiso({idUsuario});">{administracion}</select>
+            </td>
+            <td align="right">
+                <table>
+                    <tr>
+                        <td align="right"><input type="radio" name="estadoUsuario" {estadoActivo} id="estadoActivo" ></td>
+                        <td>activo</td>
+                    </tr>
+                    <tr>
+                        <td align="right"><input type="radio" name="estadoUsuario" {estadoInactivo} id="estadoInactivo" ></td>
+                        <td>inactivo</td>
+                    </tr>            
+                </table>
+            </td>
+        </tr>    
+    </table>
+    <table border="0" cellpadding="2" cellspacing="2">
+        <tr>
+            <td width="50"></td>
+            <td width="500"></td>
+        </tr>
+            {htmlPermisos}
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"><input type="submit" id="submit_usuarios_permisosAgregarEditar" name="accion" value="aceptar" /></td>
+        </tr>
+    </table>
+	<input type="hidden" id="usuaPermisos_idUsuario" value="{idUsuario}" />
+</form>

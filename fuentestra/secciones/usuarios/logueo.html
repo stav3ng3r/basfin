@@ -1,0 +1,34 @@
+<div class="row">
+	<div class="col-md-12">
+	    <form action="javascript:procesarLogueo();" class="acceso" role="form">
+	        <h2>Iniciar Sesión</h2>
+			
+			
+	        
+	        <div class="input-group">
+	            <span class="input-group-addon">
+	                <i class="glyphicon glyphicon-user"></i>
+	            </span>
+	            <input type="text" id="usuario" class="form-control" placeholder="Usuario" required autofocus />
+	        </div>
+	
+	        <div class="input-group">
+	            <span class="input-group-addon">
+	            	<i class="glyphicon glyphicon-lock"></i>
+	            </span>
+	            <input type="password" id="clave" class="form-control" placeholder="Contraseña" required />
+	        </div>
+	        
+	        <span class="checkbox">
+	            <input type="checkbox" name="recordarme" /> Recordarme
+	        </span>
+	        
+	        <div align="right">
+	            <button class="btn btn-primary" id="submit_usuarios_loguear" type="submit">Iniciar Sesión</button>
+	        </div>
+	        
+	        <input type="hidden" id="ventana" value="{ventana}" />
+	        <input type="hidden" id="accionLogin" value="{accionLogin}" />          
+	    </form>
+	</div>
+</div> <!-- /container -->

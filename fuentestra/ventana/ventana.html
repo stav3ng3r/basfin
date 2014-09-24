@@ -1,0 +1,73 @@
+<div id="ventanaRecuadroDiv{nivel}" style="z-index:{z-index};">
+    <div style="position:fixed; top:0px; left:0px; width:100%; height:100%; background-color:#000; filter: alpha(opacity=50);opacity: .5; z-index:{z-index};">&nbsp;</div>
+    <div id="ventanaRecuadro{nivel}" style="position:absolute; width:100%; left:0px; top:{posIniTop}; padding-left:{posIniLeft}; z-index:{z-index}; filter: alpha(opacity=93);opacity: .93;">
+        <div class="modal-dialog ventana">        
+      		
+
+
+
+			<table border="0" cellpadding="0" cellspacing="0" align="center">
+            	<tr>
+                	<td colspan="2"></td>
+                	<td></td>
+                </tr>
+                <tr>
+                    <td style="width:21px; height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                    <td style="height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                    <td style="width:21px; height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                </tr>
+                <tr>
+                    <td style="width:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                    <td>
+                    
+                    
+                    <div class="modal-content" style="min-width: 100px; min-height: 100px">
+                        <div onmouseover="dragVentana()" onmouseout="noDragVentana()" class="modal-header"  style="cursor:move;">
+                            <button id="objCerrarVentana{nivel}"  onclick="cerrarVentana('{nivel}');" type="button" class="close" title="Cerrar" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"></h4>
+                        </div>
+                        <div class="modal-body container-fluid" id="ventana{nivel}_contenido"></div>
+                    </div>
+                    
+                    
+                    </td>
+                    <td style="width:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                </tr>
+                <tr>
+                    <td style="width:21px; height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                    <td style="height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                    <td style="width:21px; height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                </tr>
+            </table>
+            
+            
+
+        
+            <!--table border="0" cellpadding="0" cellspacing="0" align="center">
+            	<tr>
+                	<td colspan="2"></td>
+                	<td><div id="objCerrarVentana{nivel}" class="cerrar" onclick="cerrarVentana('{nivel}');" title="cerrar ventana"></div></td>
+                </tr>
+                <tr>
+                    <td style="background-image:url(imagenes/c.png); background-position:0px 0px; background-repeat:no-repeat; width:21px; height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                    <td style="background-image:url(imagenes/h.png); background-position:0px 0px; background-repeat:repeat-x; height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                    <td style="background-image:url(imagenes/c.png); background-position:-21px 0px; background-repeat:no-repeat; width:21px; height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                </tr>
+                <tr>
+                    <td style="background-image:url(imagenes/v.png); background-position:0px 0px; background-repeat:repeat-y; width:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                    <td style="background-color:#FFF;" id="ventana{nivel}_contenido"></td>
+                    <td style="background-image:url(imagenes/v.png); background-position:-21px 0px; background-repeat:repeat-y; width:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                </tr>
+                <tr>
+                    <td style="background-image:url(imagenes/c.png); background-position:0px -21px; background-repeat:no-repeat; width:21px; height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                    <td style="background-image:url(imagenes/h.png); background-position:0px -21px; background-repeat:repeat-x; height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                    <td style="background-image:url(imagenes/c.png); background-position:-21px -21px; background-repeat:no-repeat; width:21px; height:21px; cursor:move;"  onmouseover="dragVentana()" onmouseout="noDragVentana()"></td>
+                </tr>
+            </table-->
+            
+            
+            
+            <input type="text" style="width:1px; height:1px; background-color:transparent; border:0px;" onfocus="$('input[type=text]:first').focus();" />
+        </div>
+    </div>
+</div>
