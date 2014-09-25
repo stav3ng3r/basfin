@@ -46,8 +46,8 @@ class db
         $this->afected_rows = 0;
         $this->cols = 0;
 
-        $this->error = 0;
-        $this->connected = 0;
+        $this->error = false;
+        $this->connected = false;
 
     }
 

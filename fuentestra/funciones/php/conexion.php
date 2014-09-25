@@ -4,11 +4,11 @@ require_once("postgres.inc.php");
 global $tra;
 
 $pgsql_content = array();
-$pgsql_content["hostname"]        = $tra['bdIp'];		// PGSQL hostname
-$pgsql_content["user"]            = $tra['bdUsuario'];	// PGSQL username
-$pgsql_content["password"]        = $tra['bdClave'];	// PGSQL password
-$pgsql_content["db"]              = $tra['bd'];			// Nombre de la BD
-$pgsql_content["table"]           = "";					// Nombre de la tabla inicial
+$pgsql_content["hostname"]        = $tra['db']['host'];		// PGSQL hostname
+$pgsql_content["user"]            = $tra['db']['user'];	    // PGSQL username
+$pgsql_content["password"]        = $tra['db']['password'];	// PGSQL password
+$pgsql_content["db"]              = $tra['db']['db'];		// Nombre de la BD
+$pgsql_content["table"]           = "";					    // Nombre de la tabla inicial
 
 
 $db = new db();
