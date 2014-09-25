@@ -14,11 +14,9 @@ if($tra['bdIp']==''){$tra['bdIp']=$tra['bdDefaultIp'];}
 
 include('funciones/php/generales.php');
 
-//$nuevoSistema=recibir_dato('nuevoSistema');
+$nuevoSistema=recibir_dato('nuevoSistema');
 
-/*
 $b=0;
-//$sql="select id_sistema, titulo, palabras_claves, descripcion, dominio, exigir_login from sistemas where alias='".$tra['alias']."'";
 $sql="select titulo, palabras_claves, descripcion, dominio, exigir_login from sistemas where alias='".$tra['alias']."'";
 
 $db->set_query($sql);
@@ -92,6 +90,7 @@ if($row=$db->get_array()){
 		$b=1;
 	}
 }
+
 if($b==0){
 	if($nuevoSistema=='insert'){
 		include 'nuevosistema.php';
@@ -135,12 +134,4 @@ if($b==0){
 	}else{
 		tra();
 	}
-}*/
-/*
-echo "print tra in fuentestra/operaciones.php: ";
-print_r($tra);
-*/
-/*
-echo "print included files in fuentestra/operaciones.php: ";
-print_r(get_included_files());
-*/
+}

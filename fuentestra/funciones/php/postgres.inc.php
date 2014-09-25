@@ -12,11 +12,14 @@ class db
     var $conection;
     var $query;
     var $rows;
+    var $afected_rows;
     var $cols;
     var $result;
     var $error;
     var $connected;
     var $port;
+    var $result_status;
+    var $error_fields;
 
     var $queries_to_not_show_array = array(
         " select u.*, uc.usuario as usuario_creo from usuarios u left join usuarios uc on (u.id_usuario_creo=uc.id_usuario) order by u.usuario "
@@ -40,6 +43,7 @@ class db
 
         $this->query = "";
         $this->rows = 0;
+        $this->afected_rows = 0;
         $this->cols = 0;
 
         $this->error = 0;
@@ -131,19 +135,10 @@ class db
             return 0;
     }
 
-    function get_array()
+    function get_array($rowNumber = null)
     {
-        if ($this->result) {
-            $arr = pg_fetch_array($this->result);
-            if (is_array($arr)) {
-                foreach ($arr as $k => $v) {
-                    $arr[$k] = $v;
-                }
-            }
-            return $arr;
-        } else {
-            return 0;
-        }
+        $arr = pg_fetch_array($this->result, $rowNumber, PGSQL_ASSOC);
+        return $arr;
     }
 
     function free()
@@ -164,110 +159,75 @@ class db
         $this->query = $new_query;
     }
 
-    function execute_query($debug = 0)
+    function execute_query()
     {
-        global $resp;
-
-        global $error_exists;
-
-        global $seccion, $aplicacion, $accionRPC;
-
-        $show_columns_errors = false;
-
+        global $whoopsHandler;
 
         if ($this->connected == 0) {
-            echo "Error: Debe estar conectado a la BD para ejecutar un query.<br>";
+            $this->error = "Debe estar conectado a la BD para ejecutar un query.";
             return false;
         }
 
-        if ($debug >= 1) {
-            echo $this->query . "<br>";
-        }
+        pg_send_query($this->conection, $this->query);
 
-        $this->result = @pg_exec($this->conection, $this->query);
+        $this->result = pg_get_result($this->conection);
+
+        $this->result_status = pg_result_status($this->result);
+
         $this->error = 0;
         $this->rows = 0;
         $this->cols = 0;
 
-        $error_exists = false;
+        /** Codigos de estado del resultado
+         *
+         *  0 = PGSQL_EMPTY_QUERY
+         *  1 = PGSQL_COMMAND_OK
+         *  2 = PGSQL_TUPLES_OK
+         *  3 = PGSQL_COPY_TO
+         *  4 = PGSQL_COPY_FROM
+         *  5 = PGSQL_BAD_RESPONSE
+         *  6 = PGSQL_NONFATAL_ERROR
+         *  7 = PGSQL_FATAL_ERROR
+         */
 
-        if ($this->result == false) {
+        if ($this->result_status >= PGSQL_BAD_RESPONSE) {
+            $fieldcode = array(
+                "PGSQL_DIAG_SEVERITY",
+                "PGSQL_DIAG_SQLSTATE",
+                "PGSQL_DIAG_MESSAGE_PRIMARY",
+                "PGSQL_DIAG_MESSAGE_DETAIL",
+                "PGSQL_DIAG_MESSAGE_HINT",
+                "PGSQL_DIAG_STATEMENT_POSITION",
+                "PGSQL_DIAG_INTERNAL_POSITION",
+                "PGSQL_DIAG_INTERNAL_QUERY",
+                "PGSQL_DIAG_CONTEXT",
+                "PGSQL_DIAG_SOURCE_FILE",
+                "PGSQL_DIAG_SOURCE_LINE",
+                "PGSQL_DIAG_SOURCE_FUNCTION");
 
-            $error_exists = true;
-
-            $last_error = pg_last_error($this->conection);
-            if (strpos($last_error, "viola la llave fo") !== false) {
-                $tabla = strrev(substr(strrev($last_error), 3, strpos(strrev($last_error), '«') - 3));
-                if (strpos(strtoupper($this->query), "DELETE") == true) {
-                    $resp['mensaje'] = 'No puedes eliminar el registro porque el mismo es utilizado en la sección ' . $tabla . ' del sistema';
-                } else {
-                    if (strpos(strtoupper($this->query), "INSERT") == true) {
-                        $aux = 'insertar';
-                    } else {
-                        $aux = 'modificar';
-                    }
-                    $resp['mensaje'] = 'No puedes ' . $aux . ' el registro porque el código ingresado para ' . $tabla . ' no se encuentra registrado en la base de datos';
-                }
-                $resp['mensaje'] .= ' <label title="' . str_replace(chr(10), ' ', $last_error) . '"><i style="color:#999;">[más detalles]</i></label>';
-            } else if (strpos($last_error, "llave duplicada viola restricci") !== false || strpos($last_error, "duplicate key") !== false) {
-                $resp['mensaje'] = 'El valor introducido ya existe dentro del sistema';
-                $resp['mensaje'] .= ' <label title="' . str_replace(chr(10), ' ', $last_error) . '"><i style="color:#999;">[más detalles]</i></label>';
-            } else if (strpos($last_error, "validacion") !== false) {
-                $start_index_error_message = strpos($last_error, "{") + 1;
-                $end_index_error_message = strpos($last_error, "}");
-                $last_error = substr($last_error, $start_index_error_message, $end_index_error_message - $start_index_error_message);
-                $resp['mensaje'] = $last_error;
-            } else {
-                if ($accionRPC != "") {
-                    $aplicacion = $seccion . "-rpc";
-                }
-                $filename = "secciones/" . $seccion . "/" . $aplicacion . ".php";
-                if (file_exists($filename)) {
-                    $directorioError = $filename;
-                } else {
-                    $filename_fuentestra = "fuentestra/" . $filename;
-                    $directorioError = $filename_fuentestra;
-                }
-
-                $query = $this->query;
-                $query = str_replace(chr(13), '', $query);
-                $query = str_replace(chr(10), '#chr10#', $query);
-
-                $htmlError = '';
-                $htmlError .= '<b>Error detectado en el directorio:</b> ' . $directorioError . '<br>';
-                $htmlError .= "<br/><b>Query</b><br>";
-                $htmlError .= '<textarea disabled style="font-family:Arial; width:400px; height:100px; font-size:11px; background-image:none; background-color:#FF9;">';
-                $htmlError .= $query;
-                $htmlError .= '</textarea><br>';
-                $htmlError .= '<div style="color:#F00;">' . str_replace(chr(10), '', $last_error) . '</div><br>';
-
-                $resp['mensaje'] = $htmlError;
-            }
-        }
-
-        if ($accionRPC == '' && $resp['mensaje'] != '' && $resp['mensaje'] != 'ok') {
-            $resp['mensaje'] = str_replace('#chr10#', chr(10), $resp['mensaje']);
-            echo($resp['mensaje']);
-            $resp['mensaje'] = '';
-        }
-
-        if ($this->result == false) {
-            if ($debug >= 1) {
-                echo "Error: no se puede ejecutar la consulta<br>$this->query";
+            $errorFields = array();
+            foreach ($fieldcode as $fcode) {
+                $errorFields[$fcode] = pg_result_error_field($this->result, constant($fcode));
             }
 
-            $this->error = 1;
-            return false;
-        }
-        $sql_command = substr($this->query, 0, strpos($this->query, " "));
-        $sql_command = strtolower($sql_command);
+            $this->error_fields = $errorFields;
 
-        if (($sql_command == "insert") || ($sql_command == "update") || $sql_command == "delete") {
-            $this->rows = pg_cmdtuples($this->result);
-        } else {
-            $this->rows = pg_numrows($this->result);
-            $this->cols = pg_numfields($this->result);
+            $this->error = pg_result_error($this->result);
+
+            $errorFields['ERROR_MESSAGE'] = $this->error;
+
+            $whoopsHandler->addDataTable('Conexion', (array)$this);
+            $whoopsHandler->addDataTable('Error Codes', $errorFields);
+
+            throw new Exception($this->error);
         }
+
+        $this->rows = pg_num_rows($this->result);
+        $this->afected_rows = pg_affected_rows($this->result);
+        $this->cols = pg_num_fields($this->result);
+
+        d($this);
+
         return true;
     }
 

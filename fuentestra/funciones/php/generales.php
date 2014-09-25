@@ -11,9 +11,6 @@ $whoops->pushHandler($whoopsHandler);
 $whoops->register();
 
 include 'conexion.php';
-
-
-/*
 include 'seguridad.php';
 include 'cadena.php';
 include 'fecha.php';
@@ -27,8 +24,8 @@ include 'jpgraph/jpgraph.php';
 include 'jpgraph/jpgraph_line.php';
 include 'jpgraph/jpgraph_pie.php';
 include 'jpgraph/jpgraph_pie3d.php';
-include 'jpgraph/jpgraph_bar.php';*/
+include 'jpgraph/jpgraph_bar.php';
 
 
 
-// Add a custom table to the layout:
+d('ok');
